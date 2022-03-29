@@ -1,7 +1,8 @@
 import VueRouter from 'vue-router'
 import ExampleComponent from './components/ExampleComponent'
-import Register from './pages/Register.vue'
-import Participants from './pages/Participants.vue'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Participants from './pages/Participants'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/register',
     component: Register,
     name: 'register'
+  },
+  {
+    path: '/login',
+    component: Login,
+    name: 'login'
   },
   {
     path: '/participants',
