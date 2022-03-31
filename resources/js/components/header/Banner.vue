@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import StarIcon from '../components/StarIcon'
+import StarIcon from '../icons/StarIcon'
 
 export default {
   name: 'Banner',
