@@ -4,6 +4,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuetify from './plugins/vuetify'
 import VeeValidate from 'vee-validate'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faUserSecret)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 import router from './routes'
 import store from './store'
