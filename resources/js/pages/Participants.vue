@@ -1,26 +1,23 @@
 <template>
-  <v-app>
-    <div class="participants-table pa-7 pa-sm-12">
-      <div class="participants-table__title">SFC True North Conference Participants</div>
-
-      <v-text-field
-        v-model="search"
-        label="Search a name (case-sensitive)"
-        class="mx-auto mx-sm-10"
-      />
-      <v-data-table
-        :headers="headers"
-        :items="participants"
-        :items-per-page="10"
-        :search="search"
-        :custom-filter="filterName"
-        :loading="loading"
-        loading-text="Loading information..."
-        class="participants-table__data elevation-1"
-        light
-      />
-    </div>
-  </v-app>
+  <div class="participants-table pa-7 pa-sm-12">
+    <div class="participants-table__title">SFC True North Conference Participants</div>
+    <v-text-field
+      v-model="search"
+      label="Search a name (case-sensitive)"
+      class="mx-auto mx-sm-10"
+    />
+    <v-data-table
+      :headers="headers"
+      :items="participants"
+      :items-per-page="10"
+      :search="search"
+      :custom-filter="filterName"
+      :loading="loading"
+      loading-text="Loading information..."
+      class="participants-table__data elevation-1"
+      light
+    />
+  </div>
 </template>
 
 <script>
