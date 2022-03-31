@@ -10,21 +10,24 @@
         />
       </div>
     </div>
+    <AppFooter />
   
     <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Banner from './components/Banner'
-import AppToolBar from './components/AppToolBar'
+import Banner from './components/header/Banner'
+import AppToolBar from './components/header/AppToolBar'
+import AppFooter from './components/footer/AppFooter'
 
 export default {
   name: 'Index',
 
   components: {
     Banner,
-    AppToolBar
+    AppToolBar,
+    AppFooter
   },
 
   computed: {
