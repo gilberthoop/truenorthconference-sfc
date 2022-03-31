@@ -1,19 +1,29 @@
 <template>
   <v-app class="app">
-    <AppToolBar
-      v-if="!noToolBarMenu"
-    />
+    <div class="d-flex flex-column-reverse flex-md-column">
+      <Banner
+        v-if="!noToolBarMenu"
+      />
+      <div>
+        <AppToolBar
+        v-if="!noToolBarMenu"
+        />
+      </div>
+    </div>
+  
     <router-view></router-view>
   </v-app>
 </template>
 
 <script>
+import Banner from './components/Banner'
 import AppToolBar from './components/AppToolBar'
 
 export default {
   name: 'Index',
 
   components: {
+    Banner,
     AppToolBar
   },
 
@@ -27,5 +37,6 @@ export default {
 
 <style scoped lang="scss">
 .app {
+  background-color: #121A2E;
 }
 </style>

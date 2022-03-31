@@ -1,9 +1,9 @@
 <template>
     <v-app-bar
-      app
       class="app-bar px-0 px-sm-5 px-md-10"
       height="108"
-      color="rgba(16, 24, 40, 0.75)"
+      color="#121A2E"
+      elevation="0"
     >
       <v-container
         class="pa-0 d-flex"
@@ -185,7 +185,6 @@ export default {
 
 <style scoped lang="scss">
 .app-bar {
-  z-index: 10 !important;
   font-size: 18px !important;
   font-family: "Outfit", sans-serif !important;
 
