@@ -2,6 +2,13 @@
   <v-app>
     <div class="login">
       <div class="login__left-panel">
+        <div
+          class="tnc-logo"
+          @click="redirectToHomePage"
+        >
+          <LogoBlackAndRed />
+        </div>
+
         <div class="login__title">
           Log in
         </div>
@@ -96,13 +103,15 @@
 
 <script>
 import { ValidationObserver, ValidationProvider, validate } from 'vee-validate'
+import LogoBlackAndRed from '../components/icons/LogoBlackAndRed'
 
 export default {
   name: 'Login',
 
   components: {
     ValidationObserver,
-    ValidationProvider
+    ValidationProvider,
+    LogoBlackAndRed
   },
 
   data () {
@@ -153,6 +162,11 @@ export default {
       }
 
       this.loading = false
+    },
+
+    redirectToHomePage () {
+      this.$router.push('home')
+      console.log('ge')
     }
   }
 }
@@ -191,6 +205,10 @@ export default {
     font-size: 36px;
     font-weight: 500;
     color: #101828;
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 60px;
+    }
   }
 
   &__subtitle {
@@ -252,5 +270,12 @@ export default {
     text-align: center;
     margin-bottom: 14px;
   }
+}
+
+.tnc-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  cursor: pointer;
 }
 </style>
