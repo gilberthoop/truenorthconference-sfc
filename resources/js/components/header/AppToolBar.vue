@@ -199,7 +199,7 @@ export default {
 
   &__buttons {
     ::v-deep .v-btn.v-size--default {
-      font-size: 16px;
+      font-size: 18px;
       color: #3538CD;
     }
 

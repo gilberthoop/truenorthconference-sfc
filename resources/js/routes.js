@@ -5,6 +5,10 @@ import Participants from './pages/Participants'
 
 const routes = [
   {
+    path: '/',
+    name: 'home'
+  },
+  {
     path: '/register',
     component: Register,
     name: 'register'
