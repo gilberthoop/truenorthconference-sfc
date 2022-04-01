@@ -165,7 +165,7 @@ export default {
     },
 
     redirectToHomePage () {
-      this.$router.push('home')
+      this.$router.push('/')
       console.log('ge')
     }
   }
