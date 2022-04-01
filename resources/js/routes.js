@@ -1,4 +1,5 @@
 import VueRouter from 'vue-router'
+import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Participants from './pages/Participants'
@@ -6,6 +7,7 @@ import Participants from './pages/Participants'
 const routes = [
   {
     path: '/',
+    component: Home,
     name: 'home'
   },
   {
