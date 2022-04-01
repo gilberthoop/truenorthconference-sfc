@@ -1,15 +1,20 @@
 <template>
   <v-app class="app">
-    <div class="d-flex flex-column-reverse flex-md-column">
-      <Banner
-        v-if="!noToolBarMenu"
-      />
+    <div class="d-flex flex-column">
       <div>
         <AppToolBar
         v-if="!noToolBarMenu"
         />
       </div>
+      <Banner
+        v-if="!noToolBarMenu"
+      />
     </div>
+
+    <Introduction />
+
+    <v-spacer />
+
     <AppFooter />
   
     <router-view></router-view>
@@ -20,6 +25,7 @@
 import Banner from './components/header/Banner'
 import AppToolBar from './components/header/AppToolBar'
 import AppFooter from './components/footer/AppFooter'
+import Introduction from './components/mvp/Introduction'
 
 export default {
   name: 'Index',
@@ -27,7 +33,8 @@ export default {
   components: {
     Banner,
     AppToolBar,
-    AppFooter
+    AppFooter,
+    Introduction
   },
 
   computed: {
