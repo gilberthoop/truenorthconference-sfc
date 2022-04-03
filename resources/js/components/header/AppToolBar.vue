@@ -2,8 +2,9 @@
     <v-app-bar
       class="app-bar px-0 px-sm-5 px-md-16"
       height="108"
-      color="#121A2E"
+      color="rgba(18, 26, 46, 0.9)"
       elevation="0"
+      app
     >
       <v-container
         class="pa-0"
@@ -187,6 +188,7 @@ export default {
 .app-bar {
   font-size: 18px !important;
   font-family: "Outfit", sans-serif !important;
+  backdrop-filter: blur(15px);
 
   &__links-list {
     background-color: #2D3282 !important;

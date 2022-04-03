@@ -45,7 +45,7 @@ export default {
   font-family: "Outfit", sans-serif;
   color: #fff;
   position: relative;
-  margin: 120px 80px;
+  margin: 310px 80px 120px;
 
   @media only screen and (min-width: 600px) and (max-width: 960px) {
     margin: 70px 40px;
@@ -70,7 +70,7 @@ export default {
     }
 
     &--gradient {
-      background: linear-gradient(90deg, #444CE7 0%, #9E77ED 100%);
+      background: linear-gradient(90deg, #444CE7 30%, #9E77ED 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

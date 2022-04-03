@@ -40,6 +40,9 @@ export default {
 
 <style scoped lang="scss">
 .banner {
+  position: absolute;
+  top: 108px;
+
   &__message {
     font-family: "Outfit", sans-serif;
     color: #fff;
