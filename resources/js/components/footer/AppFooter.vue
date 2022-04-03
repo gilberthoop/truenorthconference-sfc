@@ -6,13 +6,13 @@
       padless
     >
       <v-card
-        class="footer__card d-flex align-center justify-space-between flex-column flex-md-row"
+        class="footer__card d-flex align-center justify-center items-center flex-column flex-md-row"
         color="#2D31A6"
         width="100%"
         flat
         tile
       >
-        <div class="order-2 order-md-1 py-6 py-md-0">
+        <div class="order-2 order-md-1 py-6 py-md-0 mr-md-auto">
             <a
               class="footer__link mx-1"
               href="https://www.instagram.com/cfcsfccanada"
@@ -47,7 +47,7 @@
           max-height="50"
         />
 
-        <div class="order-3">
+        <div class="order-3 ml-md-auto">
           &copy; 2022 Singles for Christ Canada
         </div>
       </v-card>
@@ -68,6 +68,8 @@ export default {
 
 <style scoped lang="scss">
 .footer {
+  font-family: "Outfit", sans-serif;
+  color: #fff;
   background-color: #2D31A6 !important;
   padding-left: 30px;
   padding-right: 30px;
