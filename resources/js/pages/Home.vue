@@ -23,6 +23,8 @@
 
     <FAQ />
 
+    <RegisterNow />
+
     <v-spacer />
 
     <!-- Footer section -->
@@ -39,6 +41,7 @@ import Join from '../components/mvp/Join'
 import Agenda from '../components/mvp/Agenda'
 import FAQ from '../components/mvp/FAQ'
 import Testimony from '../components/mvp/Testimony'
+import RegisterNow from '../components/mvp/RegisterNow'
 
 export default {
   name: 'Home',
@@ -51,7 +54,8 @@ export default {
     Join,
     Agenda,
     FAQ,
-    Testimony
+    Testimony,
+    RegisterNow
   },
 
   computed: {
