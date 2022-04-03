@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home d-flex flex-column">
     <!-- Header section -->
     <div class="d-flex flex-column">
       <div>
@@ -15,6 +15,12 @@
     <!-- MVP sections -->
     <Introduction />
 
+    <Join />
+
+    <Agenda />
+
+    <FAQ />
+
     <v-spacer />
 
     <!-- Footer section -->
@@ -27,6 +33,9 @@ import Banner from '../components/header/Banner'
 import AppToolBar from '../components/header/AppToolBar'
 import AppFooter from '../components/footer/AppFooter'
 import Introduction from '../components/mvp/Introduction'
+import Join from '../components/mvp/Join'
+import Agenda from '../components/mvp/Agenda'
+import FAQ from '../components/mvp/FAQ'
 
 export default {
   name: 'Home',
@@ -35,7 +44,10 @@ export default {
     Banner,
     AppToolBar,
     AppFooter,
-    Introduction
+    Introduction,
+    Join,
+    Agenda,
+    FAQ
   },
 
   computed: {

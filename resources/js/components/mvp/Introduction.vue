@@ -1,6 +1,6 @@
 <template>
-  <div class="intro ma-5 ma-sm-16">
-    <div class="intro__title mt-8 mt-sm-13">
+  <div class="intro">
+    <div class="intro__title">
       <span class="intro__title--gradient">
         Experience
       </span>
@@ -45,6 +45,15 @@ export default {
   font-family: "Outfit", sans-serif;
   color: #fff;
   position: relative;
+  margin: 120px 80px;
+
+  @media only screen and (min-width: 600px) and (max-width: 960px) {
+    margin: 70px 40px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 50px 20px;
+  }
 
   &__title {
     font-size: 124px;
