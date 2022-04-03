@@ -17,6 +17,8 @@
 
     <Join />
 
+    <Testimony />
+
     <Agenda />
 
     <FAQ />
@@ -36,6 +38,7 @@ import Introduction from '../components/mvp/Introduction'
 import Join from '../components/mvp/Join'
 import Agenda from '../components/mvp/Agenda'
 import FAQ from '../components/mvp/FAQ'
+import Testimony from '../components/mvp/Testimony'
 
 export default {
   name: 'Home',
@@ -47,7 +50,8 @@ export default {
     Introduction,
     Join,
     Agenda,
-    FAQ
+    FAQ,
+    Testimony
   },
 
   computed: {
