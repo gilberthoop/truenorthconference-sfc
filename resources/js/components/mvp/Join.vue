@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="panel d-flex flex-column flex-md-row justify-center justify-md-space-between">
     <div class="panel-left">
       <div class="panel-left__title mb-8 mr-0 mr-md-16">
@@ -63,11 +64,44 @@
       </v-card>
     </div>
   </div>
+
+  <div class="mb-10">
+    <Marquee
+      :image="lineImgSrc"
+      width="100vw"
+      height="2px"
+    />
+    <Marquee
+      class="my-1"
+      :image="tncBannerImgSrc"
+      width="100vw"
+      height="50px"
+    />
+    <Marquee
+      :image="lineImgSrc"
+      width="100vw"
+      height="2px"
+    />
+  </div>
+</div>
 </template>
 
 <script>
+import Marquee from '../../components/animation/Marquee'
+
 export default {
   name: 'Join',
+
+  components: {
+    Marquee
+  },
+
+  data () {
+    return {
+      lineImgSrc: '/images/banner/line-1.png',
+      tncBannerImgSrc: '/images/banner/content.png'
+    }
+  },
 
   methods: {
     redirectToRegistration () {
