@@ -1,17 +1,17 @@
 <template>
     <v-app-bar
-      class="app-bar px-0 px-sm-5 px-md-10"
+      class="app-bar px-0 px-sm-5 px-md-16"
       height="108"
       color="#121A2E"
       elevation="0"
     >
       <v-container
-        class="pa-0 d-flex"
+        class="pa-0"
         fluid
       >
         <v-row
           no-gutters
-          class="align-center justify-space-around items-center"
+          class="align-center justify-center items-center"
         >
           <v-col
             class="d-none d-md-flex"
@@ -42,7 +42,7 @@
             <v-btn
               class="mx-3 text-capitalize"
               color="#EEF4FF"
-              width="94"
+              width="104"
               height="60"
               @click="onLogInClick"
             >
@@ -50,7 +50,7 @@
             </v-btn>
             <v-btn
               class="app-bar__buttons--gradient mx-3 text-capitalize"
-              width="115"
+              width="123"
               height="60"
               @click="onRegisterClick"
             >
@@ -161,10 +161,10 @@ export default {
   data () {
     return {
       links: [
-        { name: 'Details', route: '#' },
-        { name: 'Agenda', route: '#' },
-        { name: 'Past Speakers', route: '#' },
-        { name: 'FAQ', route: '#' }
+        { name: 'Details', route: '#details' },
+        { name: 'Agenda', route: '#agenda' },
+        { name: 'Past Speakers', route: '#past-speakers' },
+        { name: 'FAQ', route: '#faq' }
       ],
       logoSrc: '/images/tnclogo-white.svg',
       dialog: false
@@ -189,7 +189,7 @@ export default {
   font-family: "Outfit", sans-serif !important;
 
   &__links-list {
-    background-color: #2D3282;
+    background-color: #2D3282 !important;
   }
   
   &__links {
