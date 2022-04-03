@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="agenda d-flex flex-column flex-lg-row justify-space-between">
     <div class="agenda__header mb-0 mb-md-14">
       <div class="agenda__header-title mb-4 mb-md-7">
@@ -55,11 +56,37 @@
     </v-card>
     </div>
   </div>
+   
+  <div>
+    <Marquee
+      :image="lineImgSrc"
+      width="100vw"
+      height="2px"
+    />
+    <Marquee
+      class="my-1"
+      :image="tncBannerImgSrc"
+      width="100vw"
+      height="50px"
+    />
+    <Marquee
+      :image="lineImgSrc"
+      width="100vw"
+      height="2px"
+    />
+  </div>
+</div>
 </template>
 
 <script>
+import Marquee from '../../components/animation/Marquee'
+
 export default {
   name: 'Agenda',
+
+  components: {
+    Marquee
+  },
 
   data () {
     return {
@@ -85,7 +112,9 @@ export default {
           image: '/images/agenda/conference.png',
           description: ' 2-day online stream featuring our key note speakers, praise and worship and more.'
         }
-      ]
+      ],
+      lineImgSrc: '/images/banner/line-1.png',
+      tncBannerImgSrc: '/images/banner/content.png'
     }
   },
 
