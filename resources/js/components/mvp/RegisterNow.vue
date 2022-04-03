@@ -161,6 +161,7 @@ export default {
   &__image-arrow {
     width: 116px;
     height: 116px;
+    cursor: pointer;
 
     @media only screen and (min-width: 600px) and (max-width: 1200px) {
       width: 90px;

@@ -188,7 +188,7 @@ export default {
 .app-bar {
   font-size: 18px !important;
   font-family: "Outfit", sans-serif !important;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
 
   &__links-list {
     background-color: #2D3282 !important;

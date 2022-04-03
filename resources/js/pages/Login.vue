@@ -126,6 +126,10 @@ export default {
     }
   },
 
+  mounted () {
+    window.scrollTo(0 ,0)
+  },
+
   computed: {
     emailInputRules () {
       return this.emailFieldFocused ? '' : 'required|email'
