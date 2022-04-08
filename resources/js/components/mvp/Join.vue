@@ -1,5 +1,10 @@
 <template>
 <div>
+  <div
+    id="details"
+    class="anchor">
+  </div>
+  
   <div class="panel d-flex flex-column flex-md-row justify-center justify-md-space-between">
     <div class="panel-left">
       <div class="panel-left__title mb-8 mr-0 mr-md-16">
@@ -64,25 +69,6 @@
       </v-card>
     </div>
   </div>
-
-  <div class="mb-10">
-    <Marquee
-      :image="lineImgSrc"
-      width="100vw"
-      height="2px"
-    />
-    <Marquee
-      class="my-1"
-      :image="tncBannerImgSrc"
-      width="100vw"
-      height="50px"
-    />
-    <Marquee
-      :image="lineImgSrc"
-      width="100vw"
-      height="2px"
-    />
-  </div>
 </div>
 </template>
 
@@ -116,14 +102,14 @@ export default {
   font-family: "Outfit", sans-serif;
   color: #fff;
   position: relative;
-  margin: 120px 80px;
+  margin: 0 80px 120px;
 
   @media only screen and (min-width: 600px) and (max-width: 960px) {
     margin: 70px 40px;
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 50px 20px;
+    margin: 0 20px 50px;
   }
 
   &-left {
@@ -131,6 +117,11 @@ export default {
       font-weight: 700;
       font-size: 72px;
       line-height: 90px;
+
+      @media only screen and (max-width: 600px) {
+        font-size: 36px;
+        line-height: 44px;
+      }
     }
   }
 }
@@ -179,6 +170,17 @@ export default {
       font-size: 16px;
       line-height: 24px;
     }
+  }
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -150px;
+  visibility: hidden;
+
+  @media only screen and (max-width: 960px) {
+    top: -100px;
   }
 }
 </style>

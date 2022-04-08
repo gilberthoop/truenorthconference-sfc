@@ -31,12 +31,51 @@
         </v-icon>
       </v-btn>
     </div>
+
+   <div class="image">
+    <div class="image__upper d-flex justify-space-between">
+      <v-img
+        class="image__top-left"
+        :src="topLeftImg"
+      />
+      <v-img
+        class="image__top-right"
+        :src="topRightImg"
+      />
+    </div>
+
+    <div class="image__lower d-flex justify-space-between">
+      <v-img
+        class="image__bottom-left"
+        :src="bottomLeftImg"
+      />
+      <v-img
+        class="image__bottom-right"
+        :src="bottomRightImg"
+      />
+    </div>
+
+    <v-img
+      class="image__sfc"
+      :src="sfcLogo"
+    />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Introduction'
+  name: 'Introduction',
+
+  data () {
+    return {
+      topLeftImg: '/images/introduction/top-left.png',
+      topRightImg: '/images/introduction/top-right.png',
+      bottomLeftImg: '/images/introduction/bottom-left.png',
+      bottomRightImg: '/images/introduction/bottom-right.png',
+      sfcLogo: '/images/introduction/sfc-logo.png'
+    }
+  }
 }
 </script>
 
@@ -46,13 +85,14 @@ export default {
   color: #fff;
   position: relative;
   margin: 310px 80px 120px;
+  min-height: 100vh;
 
   @media only screen and (min-width: 600px) and (max-width: 960px) {
-    margin: 70px 40px;
+    margin: 250px 40px;
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 50px 20px;
+    margin: 250px 20px 100px;
   }
 
   &__title {
@@ -92,6 +132,101 @@ export default {
 
   &__cta-learn {
     border:none;
+  }
+}
+
+.image {
+  position: relative;
+  height: 1450px;
+  max-width: 100%;
+  margin-top: 20px; 
+
+  @media only screen and (max-width: 1200px) {
+    margin-top: 12%;
+  }
+
+  @media only screen and (max-width: 960px) {
+    height: 700px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    height: auto;
+    margin-top: 20%;
+  }
+
+  &__upper,
+  &__lower {
+    max-width: 100%;
+  }
+
+  &__top-left {
+    max-width: 600px;
+    max-height: 406px;
+    width: 50%;
+    height: 50%;
+    margin: 20% 0;
+
+    @media only screen and (max-width: 1200px) {
+      margin-top: 18%;
+    }
+  }
+
+  &__top-right {
+    max-width: 680px;
+    max-height: 884px;
+    width: 50%;
+    height: 50%;
+  }
+
+  &__bottom-left {
+    max-width: 406px;
+    max-height: 602px;
+    width: 50%;
+    height: 50%;
+    margin-top: -8%;
+
+    @media only screen and (max-width: 1200px) {
+      max-width: 306px;
+      max-height: 402px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      max-width: 306px;
+      max-height: 402px;
+    }
+  }
+
+  &__bottom-right {
+    max-width: 640px;
+    max-height: 389px;
+    width: 50%;
+    height: 50%;
+    margin-top: 8%;
+
+    @media only screen and (max-width: 1200px) {
+      margin-top: 17%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin-top: 35%;
+    }
+  }
+
+  &__sfc {
+    position: absolute;
+    top: -110px;
+    right: 40px;
+    max-width: 190px;
+    max-height: 190px;
+    width: 100%;
+    height: auto;
+
+    @media only screen and (max-width: 600px) {
+      top: -60px;
+      right: 20px;
+      max-width: 120px;
+      max-height: 120px;
+    }
   }
 }
 </style>

@@ -22,12 +22,12 @@
               v-for="(link, index) in links"
               :key="index"
             >
-              <router-link
+              <a
                 class="app-bar__links px-5"
-                :to="{name: link.route}"
+                :href="link.route"
               >
                 {{ link.name }}
-              </router-link>
+              </a>
             </div>
           </v-col>
   
@@ -120,12 +120,12 @@
                   v-for="(link, index) in links"
                   :key="index"
                 >
-                  <router-link
+                  <a
                     class="app-bar__links px-0 px-sm-5"
-                    :to="{name: link.route}"
+                    :href="link.route"
                   >
                     {{ link.name }}
-                  </router-link>
+                  </a>
                 </v-list-item>
               </v-list>
               
@@ -164,7 +164,7 @@ export default {
       links: [
         { name: 'Details', route: '#details' },
         { name: 'Agenda', route: '#agenda' },
-        { name: 'Past Speakers', route: '#past-speakers' },
+        { name: 'Workshops', route: '#workshops' },
         { name: 'FAQ', route: '#faq' }
       ],
       logoSrc: '/images/tnclogo-white.svg',

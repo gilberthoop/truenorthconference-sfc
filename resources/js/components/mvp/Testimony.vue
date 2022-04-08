@@ -7,14 +7,12 @@
       height="525"
     >
       <div class="testimony__message my-4">
-        "I am the
-        <span class="testimony__message--gradient">cutest guy</span>
-        in SFC."
+        TNC
+        <span class="testimony__message--gradient">changed my life</span>
+        and I learn so many things every year.
       </div>
       <div class="testimony__author">
-        Kevin Solis, <br>
-        Certified Hurtboi, <br>
-        Greater Vancouver Area
+        Neil Yapp
       </div>
 
       <v-img
@@ -33,7 +31,7 @@ export default {
 
   data () {
     return {
-      imgSrc: '/images/testimony/solis.jpg'
+      imgSrc: '/images/testimony/testimony.png'
     }
   }
 }
@@ -43,10 +41,7 @@ export default {
 <style scoped lang="scss">
 .testimony {
   min-height: 100vh;
-
-  @media only screen and (max-width: 400px) {
-    min-height: 120vh;
-  }
+  margin-top: 100px;
 
   &__card {
     font-family: "Outfit", sans-serif;
@@ -96,7 +91,7 @@ export default {
 
   &__image {
     position: absolute;
-    top: 210px;
+    top: 300px;
     right: 80px;
 
     @media only screen and (min-width: 600px) and (max-width: 960px) {
