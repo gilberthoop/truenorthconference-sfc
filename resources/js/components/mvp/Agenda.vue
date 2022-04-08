@@ -1,7 +1,11 @@
 <template>
-<div>
-  <div class="agenda d-flex flex-column flex-lg-row justify-space-between">
-    <div class="agenda__header mb-0 mb-md-14">
+  <div class="agenda">
+    <div
+      id="agenda"
+      class="anchor">
+    </div>
+
+    <div class="agenda__header mb-0 mb-md-4">
       <div class="agenda__header-title mb-4 mb-md-7">
         Agenda
       </div>
@@ -17,64 +21,61 @@
         Register for 2022
       </v-btn>
     </div>
+  
+    <div class="d-flex flex-column">
+      <div class="d-flex flex-column flex-md-row justify-space-between">
+        <v-card
+          class="agenda__card pa-5 mt-9 mr-0 mr-md-4"
+          color="#1D2939"
+          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+        >
+          <div class="agenda__card-date">
+            Saturday, May 21, 2022
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Workshops
+          </div>
+          <div class="agenda__card-description mb-2">
+            Engaging and authentic conversations featuring eleven workshop presenters.
+          </div>
+        </v-card>
 
-    <div class="d-flex flex-column flex-md-row">
-    <v-card
-      v-for="(agenda, index) in agendas"
-      :key="index"
-      class="agenda__card pa-7 ml-0 mx-md-auto ml-lg-8 mt-8 mt-md-0 d-flex flex-column justify-space-between"
-      color="#1D2939"
-      :width="$vuetify.breakpoint.smAndDown ? '100%' : '278px'"
-      :height="$vuetify.breakpoint.smAndDown ? '100%' : '597px'"
-    >
-      <div class="agenda__card--upper">
+        <v-card
+          class="agenda__card pa-5 mt-9 ml-0 ml-md-4"
+          color="#1D2939"
+          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+        >
+          <div class="agenda__card-date">
+            Wednesday, May 25, 2022
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Competitions
+          </div>
+          <div class="agenda__card-description mb-2">
+            Participate with your friends in various creative, sports, and fun competitions.
+          </div>
+        </v-card>
+      </div>
+
+      <v-card
+        class="agenda__card pa-5 mt-9"
+        color="#1D2939"
+        width="100%"
+        height="100%"
+      >
         <div class="agenda__card-date">
-          <span
-            v-if="$vuetify.breakpoint.smAndDown"
-          >
-            {{ agenda.day }}
-          </span>
-          {{ agenda.date }}
+          Saturday, May 28 - May 29, 2022
         </div>
         <div class="agenda__card-title font-weight-medium">
-          {{ agenda.title }}
+          Main Conference
         </div>
-      </div>
-      <div class="agenda__card--lower">
-        <v-img
-          v-if="$vuetify.breakpoint.mdAndUp"
-          class="my-7"
-          :src="agenda.image"
-          height="222"
-          width="214"
-        >
-        </v-img>
-        <div class="agenda__card-description">
-          {{ agenda.description }}
+        <div class="agenda__card-description mb-2">
+          2-day online stream featuring our key note speakers, praise and worship and more.
         </div>
-      </div>
-    </v-card>
+      </v-card>
     </div>
-  </div>
-   
-  <div>
-    <Marquee
-      :image="lineImgSrc"
-      width="100vw"
-      height="2px"
-    />
-    <Marquee
-      class="my-1"
-      :image="tncBannerImgSrc"
-      width="100vw"
-      height="50px"
-    />
-    <Marquee
-      :image="lineImgSrc"
-      width="100vw"
-      height="2px"
-    />
-  </div>
 </div>
 </template>
 
@@ -138,23 +139,10 @@ export default {
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 50px 20px;
+    margin: 60px 20px;
   }
 
   &__header {
-    margin-right: 60px;
-
-    @media only screen and (max-width: 1260px) {
-      margin-right: auto;
-      margin-left: auto;
-      text-align: center;
-    }
-
-    @media only screen and (max-width: 960px) {
-      margin: 0;
-      text-align: left;
-    }
-
     &-title {
       font-size: 72px;
       font-weight: 700;
@@ -221,5 +209,12 @@ export default {
       font-weight: 500;
     }
   }
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
 }
 </style>
