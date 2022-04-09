@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('region');
+            $table->string('area');
+            $table->boolean('in_person');
+            $table->string('workshop');
         });
     }
 
