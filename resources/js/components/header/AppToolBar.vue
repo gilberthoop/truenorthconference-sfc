@@ -39,7 +39,16 @@
             />
           </v-col>
 
-          <v-col class="app-bar__buttons d-none d-md-flex justify-end">
+          <v-col
+            v-if="loggedIn"
+            class="app-bar__buttons user d-none d-md-flex justify-end"
+          >
+            Hello, {{ name }}
+          </v-col>
+          <v-col
+            v-else
+            class="app-bar__buttons d-none d-md-flex justify-end"
+          >
             <v-btn
               class="mx-3 text-capitalize"
               color="#EEF4FF"
@@ -60,24 +69,32 @@
           </v-col>
 
           <v-col class="app-bar__buttons d-flex d-md-none justify-end align-center">
-            <v-btn
-              class="mx-3 text-capitalize d-none d-sm-block"
-              color="#EEF4FF"
-              width="104"
-              height="60"
-              @click="onLogInClick"
+            <div
+              v-if="loggedIn"
+              class="user d-none d-sm-block"
             >
-              Log in
-            </v-btn>
+              Hello, {{ name }}
+            </div>
+            <div v-else>
+              <v-btn
+                class="mx-3 text-capitalize d-none d-sm-block"
+                color="#EEF4FF"
+                width="104"
+                height="60"
+                @click="onLogInClick"
+              >
+                Log in
+              </v-btn>
             
-            <v-btn
-              class="app-bar__buttons--gradient mx-3 text-capitalize d-none d-sm-block"
-              width="123"
-              height="60"
-              @click="onRegisterClick"
-            >
-              Register
-            </v-btn>
+              <v-btn
+                class="app-bar__buttons--gradient mx-3 text-capitalize d-none d-sm-block"
+                width="123"
+                height="60"
+                @click="onRegisterClick"
+              >
+                Register
+              </v-btn>
+              </div>
 
             <v-dialog 
               v-model="dialog"
@@ -130,23 +147,31 @@
               </v-list>
               
               <div class="app-bar__buttons--mobile d-flex d-sm-none flex-column px-4">
-                <v-btn
-                  class="my-3 text-capitalize"
-                  color="#EEF4FF"
-                  max-width="100%"
-                  height="60"
-                  @click="onLogInClick"
+                <div
+                  v-if="loggedIn"
+                  class="user"
                 >
-                  Log in
-                </v-btn>
-                <v-btn
-                  class="app-bar__buttons--gradient my-3 text-capitalize"
-                  max-width="100%"
-                  height="60"
-                  @click="onRegisterClick"
-                >
-                  Register
-                </v-btn>
+                  Hello, {{ name }}
+                </div>
+                <div v-else>
+                  <v-btn
+                    class="my-3 text-capitalize"
+                    color="#EEF4FF"
+                    max-width="100%"
+                    height="60"
+                    @click="onLogInClick"
+                  >
+                    Log in
+                  </v-btn>
+                  <v-btn
+                    class="app-bar__buttons--gradient my-3 text-capitalize"
+                    max-width="100%"
+                    height="60"
+                    @click="onRegisterClick"
+                  >
+                    Register
+                  </v-btn>
+                </div>
               </div>
             </v-dialog>
           </v-col>
@@ -179,6 +204,24 @@ export default {
 
     onLogInClick () {
       this.$router.push('login')
+    }
+  },
+
+  computed: {
+    user () {
+      return this.$store.state.user
+    },
+
+    name () {
+      return this.user.name
+    },
+
+    email () {
+      return this.user.email
+    },
+
+    loggedIn () {
+      return this.$store.state.loggedIn
     }
   }
 }
@@ -220,6 +263,10 @@ export default {
       bottom: 120px;
     }
   }
+}
+
+.user {
+  color: #fff;
 }
 
 ::v-deep .v-dialog--fullscreen {

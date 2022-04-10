@@ -1,3 +1,5 @@
+import { logIn } from '../utils/auth'
+
 export default {
   data () {
     return {
@@ -86,6 +88,31 @@ export default {
   },
 
   methods: {
+    async logIn () {
+      this.errorMessage = ''
+      const validInputs = await this.$refs.observer.validate(); 
+      if (!validInputs) return
+
+      try {
+        this.loading = true
+        await axios.get('/sanctum/csrf-cookie')
+        await axios.post('/login', {
+          email: this.email,
+          password: this.password
+        })
+
+        logIn()
+        this.$store.dispatch('loadUser')
+        this.$router.push('/')
+      } catch (error) {
+        if (error.response?.data?.message) {
+          this.errorMessage = 'Sign in failed. Please check your email and password.'
+        }
+      }
+
+      this.loading = false
+    },
+
     async onRegistrationSubmit () {
       this.errorMessage = ''
       
@@ -106,13 +133,11 @@ export default {
         //TODO
         if (response.status === 200) {
           // Log participant in
-          // login()
-
+          login()
           // Load participant information
-          // this.$store.dispatch('loadUser')
-
+          this.$store.dispatch('loadUser')
           // Redirect to home page
-          // this.$router.push('home')
+          this.$router.push('/')
         }
       } catch (error) {
         this.errorMessage = error.response.data.message
