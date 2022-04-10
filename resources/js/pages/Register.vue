@@ -12,7 +12,7 @@
 import { ValidationObserver } from 'vee-validate'
 import PersonDetailsForm from '../components/registration/PersonDetailsForm'
 import WorkshopForm from '../components/registration/WorkshopForm'
-import RegistrationMixin from '../mixins/registration-mixin'
+import AuthMixin from '../mixins/auth-mixin'
 
 
 export default {
@@ -24,7 +24,7 @@ export default {
     WorkshopForm
   },
 
-  mixins: [RegistrationMixin],
+  mixins: [AuthMixin],
 
   computed: {
     currentPage () {

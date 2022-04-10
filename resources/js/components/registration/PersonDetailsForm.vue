@@ -151,7 +151,7 @@
 import { ValidationObserver, ValidationProvider, validate } from 'vee-validate'
 import LogoBlackAndRed from '../../components/icons/LogoBlackAndRed'
 import AppFlowNavButtons from '../../components/AppFlowNavButtons'
-import RegistrationMixin from '../../mixins/registration-mixin'
+import AuthMixin from '../../mixins/auth-mixin'
 
 export default {
   name: 'PersonDetailsForm',
@@ -163,7 +163,7 @@ export default {
     AppFlowNavButtons
   },
 
-  mixins: [RegistrationMixin],
+  mixins: [AuthMixin],
 
   data () {
     return {
@@ -203,7 +203,8 @@ export default {
           'Fort McMurray'
         ],
         [
-          'Greater Vancouver Area',
+          'Greater Vancouver North',
+          'Greater Vancouver South',
           'Victoria'
         ],
         [ 'International' ]

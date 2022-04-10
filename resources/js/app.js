@@ -26,5 +26,9 @@ const app = new Vue({
     store,
     components: {
       'index': Index
+    },
+
+    async beforeCreate () {
+      this.$store.dispatch("loadUser");
     }
 });

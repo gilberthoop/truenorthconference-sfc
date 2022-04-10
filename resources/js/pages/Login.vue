@@ -104,6 +104,7 @@
 <script>
 import { ValidationObserver, ValidationProvider, validate } from 'vee-validate'
 import LogoBlackAndRed from '../components/icons/LogoBlackAndRed'
+import AuthMixin from '../mixins/auth-mixin'
 
 export default {
   name: 'Login',
@@ -114,13 +115,10 @@ export default {
     LogoBlackAndRed
   },
 
+  mixins: [AuthMixin],
+
   data () {
     return {
-      email: null,
-      password: null,
-      bgImgSrc: '/images/registration.png',
-      loading: false,
-      errorMessage: '',
       emailFieldFocused: false,
       passwordFieldFocused: false,
     }
@@ -137,40 +135,6 @@ export default {
 
     passwordInputRules () {
       return this.passwordFieldFocused ? '' : 'required|max:40|min:8'
-    }
-  },
-
-  watch: {
-    errorMessage (value) {
-      return value
-    }
-  },
-
-  methods: {
-    async logIn () {
-      this.errorMessage = ''
-      const validInputs = await this.$refs.observer.validate(); 
-      if (!validInputs) return
-
-      try {
-        this.loading = true
-        await axios.get('/sanctum/csrf-cookie')
-        await axios.post('/login', {
-          email: this.email,
-          password: this.password
-        })
-      } catch (error) {
-        if (error.response?.data?.message) {
-          this.errorMessage = 'Sign in failed. Please check your email and password.'
-        }
-      }
-
-      this.loading = false
-    },
-
-    redirectToHomePage () {
-      this.$router.push('/')
-      console.log('ge')
     }
   }
 }
