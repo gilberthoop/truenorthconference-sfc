@@ -7,14 +7,22 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state () {
     return {
+      step: 1,
       name: null,
       email: null,
       password: null,
-      region: null
+      region: null,
+      area: null,
+      inPerson: null,
+      workshop: null
     }
   },
 
   mutations: {
+    setStep (state, step) {
+      state.step = step
+    },
+
     setName (state, name) {
       state.name = name
     },
@@ -29,6 +37,18 @@ const store = new Vuex.Store({
 
     setRegion (state, region) {
       state.region = region
+    },
+
+    setArea (state, area) {
+      state.area = area
+    },
+
+    setInPerson (state, inPerson) {
+      state.inPerson = inPerson
+    },
+
+    setWorkshop (state, workshop) {
+      state.workshop = workshop
     }
   },
 
