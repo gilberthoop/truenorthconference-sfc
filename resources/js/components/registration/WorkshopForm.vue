@@ -128,7 +128,7 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import LogoBlackAndRed from '../../components/icons/LogoBlackAndRed'
 import AppFlowNavButtons from '../../components/AppFlowNavButtons'
-import RegistrationMixin from '../../mixins/registration-mixin'
+import AuthMixin from '../../mixins/auth-mixin'
 
 export default {
   name: 'WorkshopForm',
@@ -140,7 +140,7 @@ export default {
     AppFlowNavButtons
   },
 
-  mixins: [RegistrationMixin],
+  mixins: [AuthMixin],
 
   data () {
     return {
