@@ -5,6 +5,7 @@
       v-model="search"
       label="Search a name (case-sensitive)"
       class="mx-auto mx-sm-10"
+      color="#fff"
     />
     <v-data-table
       :headers="headers"
@@ -15,7 +16,7 @@
       :loading="loading"
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
-      light
+      dark
     />
   </div>
 </template>
@@ -43,6 +44,18 @@ export default {
         {
           text: 'Region',
           value: 'region'
+        },
+        {
+          text: 'Area',
+          value: 'area'
+        },
+        {
+          text: 'In Person Gathering',
+          value: 'inPerson'
+        },
+        {
+          text: 'Workshop',
+          value: 'workshop'
         }
       ]
     }
@@ -63,7 +76,10 @@ export default {
           this.participants.push({
             name: participant.name,
             email: participant.email,
-            region: participant.region
+            region: participant.region,
+            area: participant.area,
+            inPerson: participant.in_person,
+            workshop: participant.workshop
           })
         })
       } catch (error) {
@@ -87,7 +103,7 @@ export default {
 <style scoped lang="scss">
 .participants-table {
   font-family: "Outfit", sans-serif !important;
-  color: #101828 !important;
+  color: #fff !important;
 
   &__title {
     font-family: "Outfit", sans-serif !important;
@@ -99,5 +115,9 @@ export default {
       font-size: 36px;
     }
   }
+}
+
+::v-deep .theme--light.v-label {
+  color: #fff;
 }
 </style>
