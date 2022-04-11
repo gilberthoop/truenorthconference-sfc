@@ -54,4 +54,9 @@ class LoginController extends Controller
             return response(null, 204);
         }
     }
+
+    public function showLoginForm()
+    {
+        return redirect('/');
+    }
 }

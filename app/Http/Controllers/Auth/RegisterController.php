@@ -78,4 +78,9 @@ class RegisterController extends Controller
             'workshop' => $data['workshop']
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        return redirect('/');
+    }
 }
