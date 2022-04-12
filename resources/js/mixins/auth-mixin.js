@@ -140,15 +140,8 @@ export default {
         this.loading = true
         const response = await axios.post('/register', user)
         
-        //TODO
-        // if (response.status === 200) {
-        //   // Log participant in
-        //   logIn()
-        //   // Load participant information
-        //   this.$store.dispatch('loadUser')
-        //   // Redirect to home page
-        //   this.$router.push('/')
-        // }
+        this.redirectToHomePage()
+        //TODO: Log users in automatically
       } catch (error) {
         this.errorMessage = error.response.data.message
       }
@@ -158,25 +151,6 @@ export default {
 
     redirectToHomePage () {
       this.$router.push('/')
-    },
-
-    fetchAreas (region) {
-      switch (region) {
-        case 'Atlantic (QC, NB, NL, NS, PEI)':
-          return this.areaList[0]
-        case 'Capital (ON)':
-          return this.areaList[1]
-        case 'Central (MB, SK, NU)':
-          return this.areaList[2]
-        case 'Mountain (AB, NWT)':
-          return this.areaList[3]
-        case 'Pacific (BC, YT)':
-          return this.areaList[4]
-        case 'Pacific (BC, YT)':
-          return this.areaList[5]
-        default:
-          return 'Please select your region above'
-      }
     }
   }
 }

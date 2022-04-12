@@ -82,9 +82,16 @@
           </v-btn>
         </div>
 
-        <div class="mt-4 text-center">
+        <div class="mt-4 text-center d-flex align-center">
           Haven't registered for TNC 2022?
-          <a href="#" class="login__registration-link">Register for free</a>
+          <v-btn
+            class="login__registration-link text-capitalize px-1"
+            elevation="0"
+            color="#fff"
+            width="auto"
+            @click="$router.push('register')"
+          >Register for free
+          </v-btn>
         </div>
       </div>
 
