@@ -4,20 +4,22 @@ import { isLoggedIn, logOut } from '../utils/auth';
 
 Vue.use(Vuex)
 
+const defaultStoreState = {
+  step: 1,
+  name: null,
+  email: null,
+  password: null,
+  region: null,
+  area: null,
+  inPerson: null,
+  workshop: null,
+  loggedIn: false,
+  user: null
+}
+
 const store = new Vuex.Store({
   state () {
-    return {
-      step: 1,
-      name: null,
-      email: null,
-      password: null,
-      region: null,
-      area: null,
-      inPerson: null,
-      workshop: null,
-      loggedIn: false,
-      user: null
-    }
+    return defaultStoreState
   },
 
   mutations: {
@@ -59,6 +61,10 @@ const store = new Vuex.Store({
 
     setUser (state, value) {
       state.user = value
+    },
+
+    resetAll (state) {
+      Object.assign(state, defaultStoreState)
     }
   },
 
@@ -77,8 +83,10 @@ const store = new Vuex.Store({
       }
     },
 
-    logout({ commit }) {
-      commit('setUser', {})
+    logoutUser ({ commit }) {
+      commit('setEmail', null)
+      commit('setPassword', null)
+      commit('setUser', null)
       commit('setLoggedIn', false)
       logOut()
     }

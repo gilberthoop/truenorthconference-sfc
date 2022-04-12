@@ -80,14 +80,24 @@ export default {
       set (value) {
         return this.$store.commit('setWorkshop', value)
       }
+    },
+
+    loggedIn () {
+      return this.$store.state.loggedIn
+    },
+
+    user () {
+      return this.$store.state.user
     }
   },
 
-  mounted () {
-    window.scrollTo(0, 0)
-  },
-
   methods: {
+    async logOut () {
+      await axios.post('/logout')
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
+    },
+
     async logIn () {
       this.errorMessage = ''
       const validInputs = await this.$refs.observer.validate(); 
@@ -131,14 +141,14 @@ export default {
         const response = await axios.post('/register', user)
         
         //TODO
-        if (response.status === 200) {
-          // Log participant in
-          login()
-          // Load participant information
-          this.$store.dispatch('loadUser')
-          // Redirect to home page
-          this.$router.push('/')
-        }
+        // if (response.status === 200) {
+        //   // Log participant in
+        //   logIn()
+        //   // Load participant information
+        //   this.$store.dispatch('loadUser')
+        //   // Redirect to home page
+        //   this.$router.push('/')
+        // }
       } catch (error) {
         this.errorMessage = error.response.data.message
       }

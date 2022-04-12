@@ -35,7 +35,14 @@ export default {
 
       return components[this.step]
     }
-  }
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
+
+    // if client is already logged in, redirect to home page
+    if (this.loggedIn) this.$router.push('/')
+  }, 
 }
 </script>
 
