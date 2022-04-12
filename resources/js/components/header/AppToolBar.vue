@@ -41,9 +41,20 @@
 
           <v-col
             v-if="loggedIn"
-            class="app-bar__buttons user d-none d-md-flex justify-end"
+            class="app-bar__buttons user d-none d-md-flex justify-end align-center"
           >
-            Hello, {{ name }}
+            <div>Hello, {{ user.name }}</div>
+            <div class="ml-5">
+              <v-btn
+                class="logout-btn mx-3 text-capitalize"
+                color="#EEF4FF"
+                width="auto"
+                height="50"
+                @click="logOut"
+              >
+                Log out
+              </v-btn>
+            </div>
           </v-col>
           <v-col
             v-else
@@ -73,9 +84,12 @@
               v-if="loggedIn"
               class="user d-none d-sm-block"
             >
-              Hello, {{ name }}
+              Hello, {{ user.name }}
             </div>
-            <div v-else>
+            <div
+              class="d-flex"
+              v-else
+            >
               <v-btn
                 class="mx-3 text-capitalize d-none d-sm-block"
                 color="#EEF4FF"
@@ -94,7 +108,7 @@
               >
                 Register
               </v-btn>
-              </div>
+            </div>
 
             <v-dialog 
               v-model="dialog"
@@ -145,13 +159,33 @@
                   </a>
                 </v-list-item>
               </v-list>
+
+              <v-btn
+                v-if="loggedIn && $vuetify.breakpoint.smOnly"
+                class="logout-btn mx-10 text-capitalize"
+                color="#EEF4FF"
+                width="auto"
+                height="120"
+                @click="logOut"
+              >
+                Log out
+              </v-btn>
               
               <div class="app-bar__buttons--mobile d-flex d-sm-none flex-column px-4">
                 <div
                   v-if="loggedIn"
-                  class="user"
+                  class="user d-flex flex-column"
                 >
-                  Hello, {{ name }}
+                  Hello, {{ user.name }}
+                  <v-btn
+                    class="logout-btn mt-5 text-capitalize"
+                    color="#EEF4FF"
+                    width="auto"
+                    height="45"
+                    @click="logOut"
+                  >
+                    Log out
+                  </v-btn>
                 </div>
                 <div v-else>
                   <v-btn
@@ -181,8 +215,12 @@
 </template>
 
 <script>
+import AuthMixin from '../../mixins/auth-mixin'
+
 export default {
   name: 'AppToolBar',
+
+  mixins: [AuthMixin],
 
   data () {
     return {
@@ -204,24 +242,6 @@ export default {
 
     onLogInClick () {
       this.$router.push('login')
-    }
-  },
-
-  computed: {
-    user () {
-      return this.$store.state.user
-    },
-
-    name () {
-      return this.user.name
-    },
-
-    email () {
-      return this.user.email
-    },
-
-    loggedIn () {
-      return this.$store.state.loggedIn
     }
   }
 }
@@ -285,5 +305,19 @@ export default {
 
 ::v-deep .v-btn {
   border-radius: 8px;
+}
+
+.logout-btn {
+  color: #3538CD !important;
+  
+  @media only screen and (min-width: 600px) and (max-width: 960px) {
+    font-size: 72px !important;
+    position: absolute;
+    bottom: 130px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 30px !important;
+  }
 }
 </style>

@@ -124,10 +124,6 @@ export default {
     }
   },
 
-  mounted () {
-    window.scrollTo(0 ,0)
-  },
-
   computed: {
     emailInputRules () {
       return this.emailFieldFocused ? '' : 'required|email'
@@ -136,7 +132,14 @@ export default {
     passwordInputRules () {
       return this.passwordFieldFocused ? '' : 'required|max:40|min:8'
     }
-  }
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
+
+    // if client is already logged in, redirect to home page
+    if (this.loggedIn) this.$router.push('/')
+  },
 }
 </script>
 
