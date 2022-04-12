@@ -16,6 +16,7 @@
         :width="$vuetify.breakpoint.xsOnly ? '45%' : '123'"
         height="60"
         color="#444CE7"
+        @click="$router.push('register')"
       >
         Register
       </v-btn>
@@ -24,6 +25,7 @@
         outlined
         :width="$vuetify.breakpoint.xsOnly ? '50%' : 'auto'"
         height="60"
+        @click="scrollToElement"
       >
         Learn more
         <v-icon class="ml-2">
@@ -74,6 +76,12 @@ export default {
       bottomLeftImg: '/images/introduction/bottom-left.png',
       bottomRightImg: '/images/introduction/bottom-right.png',
       sfcLogo: '/images/introduction/sfc-logo.png'
+    }
+  },
+
+  methods: {
+    scrollToElement () {
+      document.getElementById('details').scrollIntoView()
     }
   }
 }
