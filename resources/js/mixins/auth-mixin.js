@@ -140,7 +140,6 @@ export default {
         this.loading = true
         const response = await axios.post('/register', user)
         
-        // this.$router.push('verify-email')
         //TODO: Log users in automatically
       } catch (error) {
         this.errorMessage = error.response.data.message

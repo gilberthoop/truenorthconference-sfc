@@ -13,17 +13,27 @@
       </div>
 
       <div class="registration__subtitle">
-        We have sent you an email at
-        <span class="registration__email">
+        <!-- We have sent you an email at -->
+        You may log in anytime to access the True North Conference Portal.
+        <!-- <span class="registration__email">
           {{ email }}
-        </span>
-        for verification
+        </span> -->
+        <!-- for verification -->
       </div>
+      
+      <AppFlowNavButtons
+        :show-back="true"
+        back-text="Home"
+        continue-text="Log in now"
+        @back="$router.push('/')"
+        @continue="$router.push('login')"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import AppFlowNavButtons from '../../components/AppFlowNavButtons'
 import LogoBlackAndRed from '../../components/icons/LogoBlackAndRed'
 import AuthMixin from '../../mixins/auth-mixin'
 
@@ -33,6 +43,7 @@ export default {
   mixins: [AuthMixin],
 
   components: {
+    AppFlowNavButtons,
     LogoBlackAndRed
   }
 }
@@ -54,7 +65,7 @@ export default {
   &__left-panel {
     margin: 120px auto;
     padding: 30px 0;
-    max-width: 900px;
+    max-width: 600px;
 
     @media only screen and (max-width: 600px) {
       margin: 50px 20px;
