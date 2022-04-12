@@ -12,6 +12,7 @@
 import { ValidationObserver } from 'vee-validate'
 import PersonDetailsForm from '../components/registration/PersonDetailsForm'
 import WorkshopForm from '../components/registration/WorkshopForm'
+import VerifyEmail from '../components/registration/VerifyEmail'
 import AuthMixin from '../mixins/auth-mixin'
 
 
@@ -21,7 +22,8 @@ export default {
   components: {
     ValidationObserver,
     PersonDetailsForm,
-    WorkshopForm
+    WorkshopForm,
+    VerifyEmail
   },
 
   mixins: [AuthMixin],
@@ -30,7 +32,8 @@ export default {
     currentPage () {
       const components = {
         1: PersonDetailsForm,
-        2: WorkshopForm
+        2: WorkshopForm,
+        3: VerifyEmail
       }
 
       return components[this.step]
