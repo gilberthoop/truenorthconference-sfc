@@ -89,7 +89,7 @@
             v-slot="{ errors }"
             :rules="regionInputRules"
           >
-            <div>Region*</div>
+            <div>Which region are you from?*</div>
             <v-select
               ref="region"
               v-model="region"
@@ -109,17 +109,30 @@
             v-slot="{ errors }"
             rules="required|max:40|min:3"
           >
-            <div>Area</div>
-            <v-select
-              ref="area"
-              v-model="area"
-              :items="region ? fetchAreas(region) : []"
-              placeholder="Choose your area"
-              outlined
-              dense
-              color="#344054"
-              :error-messages="errors && errors.length > 0 ? 'Please select your area' : ''"
-            />
+            <div v-if="region !== 'International/Other'">
+              <div>Which area are you from?*</div>
+              <v-select
+                v-model="area"
+                :items="region ? fetchAreas(region) : []"
+                placeholder="Choose your area"
+                outlined
+                dense
+                color="#344054"
+                :error-messages="errors && errors.length > 0 ? 'Please select your area' : ''"
+              />
+            </div>
+
+            <div v-else>
+              <div>Which city are you from?*</div>
+              <v-text-field
+                v-model="area"
+                placeholder="Enter your city"
+                outlined
+                dense
+                color="#344054"
+                class="registration__form--greyed my-1"
+              />
+            </div>
           </ValidationProvider>
         </ValidationObserver>
 
@@ -129,9 +142,17 @@
         />
       </div>
 
-      <div class="mt-4 text-center">
+      <div class="mt-4 text-center d-flex align-center">
         Already registered for TNC 2022?
-        <a href="#" class="registration__login-link">Log in</a>
+        <v-btn
+          class="registration__login-link text-capitalize px-0"
+          elevation="0"
+          color="#fff"
+          width="auto"
+          @click="$router.push('login')"
+        >
+          Log in
+        </v-btn>
       </div>
     </div>
 
@@ -177,7 +198,7 @@ export default {
         'Central (MB, SK, NU)',
         'Mountain (AB, NWT)',
         'Pacific (BC, YT)',
-        'International'
+        'International/Other'
       ],
       areaList: [
         [
@@ -236,6 +257,25 @@ export default {
       if (!validInputs) return
 
       this.step++
+    },
+
+    fetchAreas (region) {
+      switch (region) {
+        case 'Atlantic (QC, NB, NL, NS, PEI)':
+          return this.areaList[0]
+        case 'Capital (ON)':
+          return this.areaList[1]
+        case 'Central (MB, SK, NU)':
+          return this.areaList[2]
+        case 'Mountain (AB, NWT)':
+          return this.areaList[3]
+        case 'Pacific (BC, YT)':
+          return this.areaList[4]
+        case 'Pacific (BC, YT)':
+          return this.areaList[5]
+        default:
+          return ' '
+      }
     }
   }
 }
