@@ -1,6 +1,8 @@
 <template>
   <v-app>
-    <div class="portal-home my-12 mx-6 mx-sm-9 mx-md-16">
+    <AppHeader/>
+  
+    <div class="portal-home mb-12 mx-6 mx-sm-9 mx-md-16">
       <div class="portal-home__title">
         Welcome to TNC 2022
       </div>
@@ -125,12 +127,22 @@
         </v-card>
       </div>
     </div>
+
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
+import AppHeader from '../../components/header/AppHeader'
+import AppFooter from '../../components/footer/AppFooter'
+
 export default {
   name: 'PortalHome',
+
+  components: {
+    AppHeader,
+    AppFooter
+  },
 
   data () {
     return {
@@ -149,6 +161,7 @@ export default {
 .portal-home {
   font-family: "Outfit", sans-serif;
   color: black;
+  margin-top: 150px;
 
   &__title {
     font-size: 72px;
