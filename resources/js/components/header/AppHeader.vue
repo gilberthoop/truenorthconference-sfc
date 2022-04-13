@@ -12,7 +12,12 @@
     >
       <div class="d-none d-md-flex justify-space-between">
         <div>
-          <LogoBlackAndRed />
+          <div
+            class="app-bar__logo"
+            @click="redirectToHomePage"
+          >
+            <LogoBlackAndRed />
+          </div>
           <v-btn
             v-for="(link, index) in links"
             :key="index"
@@ -42,7 +47,9 @@
       </div>
 
       <div class="d-flex d-md-none justify-space-between align-center">
-        <div>
+        <div
+          @click="redirectToHomePage"
+        >
           <LogoBlackAndRed />
         </div>
 
@@ -159,6 +166,11 @@ export default {
     font-size: 18px !important;
     font-family: "Outfit", sans-serif !important;
     color: #3538CD !important;
+  }
+
+  &__logo {
+    display: inline-block;
+    cursor: pointer;
   }
 }
 

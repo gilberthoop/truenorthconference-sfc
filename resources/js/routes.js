@@ -4,6 +4,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Participants from './pages/Participants'
 import PortalHome from './pages/portal/PortalHome'
+import { isLoggedIn } from './utils/auth'
 
 const routes = [
   {
@@ -14,22 +15,52 @@ const routes = [
   {
     path: '/register',
     component: Register,
-    name: 'register'
+    name: 'register',
+    beforeEnter: (to, from, next) => {
+      if (isLoggedIn()) {
+        next('/')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/login',
     component: Login,
-    name: 'login'
+    name: 'login',
+    beforeEnter: (to, from, next) => {
+      if (isLoggedIn()) {
+        next('/')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/participants',
     component: Participants,
-    name: 'participants'
+    name: 'participants',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/portal/home',
     component: PortalHome,
-    name: 'portal-home'
+    name: 'portal-home',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
   }
 ]
 
