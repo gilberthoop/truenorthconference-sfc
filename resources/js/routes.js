@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Participants from './pages/Participants'
+import PortalHome from './pages/portal/PortalHome'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/participants',
     component: Participants,
     name: 'participants'
+  },
+  {
+    path: '/portal/home',
+    component: PortalHome,
+    name: 'portal-home'
   }
 ]
 
