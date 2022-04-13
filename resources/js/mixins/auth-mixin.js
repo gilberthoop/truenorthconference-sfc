@@ -111,9 +111,12 @@ export default {
           password: this.password
         })
 
+        // Set user login status on
         logIn()
         this.$store.dispatch('loadUser')
-        this.$router.push('/')
+
+        // Redirect to portal page
+        this.redirectToHomePortal()
       } catch (error) {
         if (error.response?.data?.message) {
           this.errorMessage = 'Sign in failed. Please check your email and password.'
@@ -150,6 +153,10 @@ export default {
 
     redirectToHomePage () {
       this.$router.push('/')
+    },
+
+    redirectToHomePortal () {
+      this.$router.push('/portal/home')
     }
   }
 }

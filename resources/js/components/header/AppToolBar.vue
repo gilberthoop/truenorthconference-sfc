@@ -33,9 +33,11 @@
   
           <v-col class="d-flex justify-start justify-md-center">
             <v-img
+              class="app-bar__logo"
               :src="logoSrc"
               max-width="123"
               max-height="50"
+              @click="redirectToHomePortal"
             />
           </v-col>
 
@@ -43,7 +45,18 @@
             v-if="loggedIn"
             class="app-bar__buttons user d-none d-md-flex justify-end align-center"
           >
-            <div>Hello, {{ user.name }}</div>
+            <div>
+              <v-btn
+                class="user text-capitalize"
+                color="#121A2E"
+                width="auto"
+                height="50"
+                elevation="0"
+                @click="redirectToHomePortal"
+              >
+                Hello, {{ user.name }}
+              </v-btn>
+            </div>
             <div class="ml-5">
               <v-btn
                 class="logout-btn mx-3 text-capitalize"
@@ -84,7 +97,16 @@
               v-if="loggedIn"
               class="user d-none d-sm-block"
             >
-              Hello, {{ user.name }}
+              <v-btn
+                class="user text-capitalize"
+                color="#121A2E"
+                width="auto"
+                height="50"
+                elevation="0"
+                @click="redirectToHomePortal"
+              >
+                Hello, {{ user.name }}
+              </v-btn>
             </div>
             <div
               class="d-flex"
@@ -176,7 +198,16 @@
                   v-if="loggedIn"
                   class="user d-flex flex-column"
                 >
-                  Hello, {{ user.name }}
+                  <v-btn
+                    class="user text-capitalize"
+                    color="#2D3282"
+                    width="auto"
+                    height="50"
+                    elevation="0"
+                    @click="redirectToHomePortal"
+                  >
+                    Hello, {{ user.name }}
+                  </v-btn>
                   <v-btn
                     class="logout-btn mt-5 text-capitalize"
                     color="#EEF4FF"
@@ -253,6 +284,10 @@ export default {
   font-family: "Outfit", sans-serif !important;
   backdrop-filter: blur(10px);
 
+  &__logo {
+    cursor: pointer;
+  }
+
   &__links-list {
     background-color: #2D3282 !important;
   }
@@ -286,7 +321,11 @@ export default {
 }
 
 .user {
-  color: #fff;
+  color: #fff !important;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 24px !important;
+  }
 }
 
 ::v-deep .v-dialog--fullscreen {
