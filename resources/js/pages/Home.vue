@@ -70,6 +70,10 @@ export default {
     noToolBarMenu () {
       return this.$route.name === 'register' || this.$route.name === 'login' || this.$route.name === 'participants'
     },
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
   }
 }
 </script>

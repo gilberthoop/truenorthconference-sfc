@@ -153,6 +153,10 @@ export default {
         'Encourage your chapter to compete in competitions'
       ]
     }
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
   }
 }
 </script>
