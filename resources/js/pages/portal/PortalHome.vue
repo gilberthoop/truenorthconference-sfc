@@ -35,7 +35,7 @@
               As we prepare for conference, we invite you to meditate on our anchor verse:
             </div>
 
-            <div class="bible-verse d-flex align-center my-8">
+            <div class="bible-verse d-flex align-center mb-3 mt-8">
               <v-divider
                 class="bible-verse__divider"
                 vertical
