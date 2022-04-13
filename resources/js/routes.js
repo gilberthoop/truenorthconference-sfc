@@ -1,10 +1,12 @@
+
 import VueRouter from 'vue-router'
+import { isLoggedIn } from './utils/auth'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Participants from './pages/Participants'
 import PortalHome from './pages/portal/PortalHome'
-import { isLoggedIn } from './utils/auth'
+import Competitions from './pages/portal/Competitions'
 
 const routes = [
   {
@@ -53,6 +55,19 @@ const routes = [
     path: '/portal/home',
     component: PortalHome,
     name: 'portal-home',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/portal/competitions',
+    component: Competitions,
+    name: 'portal-competitions',
     meta: { requiresAuth: true },
     beforeEnter: (to, from, next) => {
       if (to.meta.requiresAuth && !isLoggedIn()) {

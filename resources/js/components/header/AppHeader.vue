@@ -147,7 +147,7 @@ export default {
         },
         {
           name: 'Competitions',
-          route: 'home'
+          route: 'competitions'
         },
         {
           name: 'Workshops',
