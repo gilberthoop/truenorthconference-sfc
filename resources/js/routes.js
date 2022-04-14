@@ -20,7 +20,7 @@ const routes = [
     name: 'register',
     beforeEnter: (to, from, next) => {
       if (isLoggedIn()) {
-        next('/')
+        next('/portal/home')
       } else {
         next()
       }
@@ -32,7 +32,7 @@ const routes = [
     name: 'login',
     beforeEnter: (to, from, next) => {
       if (isLoggedIn()) {
-        next('/')
+        next('/portal/home')
       } else {
         next()
       }

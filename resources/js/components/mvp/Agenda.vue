@@ -27,34 +27,34 @@
         <v-card
           class="agenda__card pa-5 mt-9 mr-0 mr-md-4"
           color="#1D2939"
-          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+          width="100%"
+          height="100%"
         >
           <div class="agenda__card-date">
-            Saturday, May 21, 2022
+            Saturday, May 28 - May 29, 2022
           </div>
           <div class="agenda__card-title font-weight-medium">
-            Workshops
+            Main Conference
           </div>
           <div class="agenda__card-description mb-2">
-            Engaging and authentic conversations featuring eleven workshop presenters.
+            2-day online stream featuring our key note speakers, praise and worship and more.
           </div>
         </v-card>
 
         <v-card
           class="agenda__card pa-5 mt-9 ml-0 ml-md-4"
           color="#1D2939"
-          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
+          width="100%"
+          height="100%"
         >
           <div class="agenda__card-date">
-            Wednesday, May 25, 2022
+            Wednesday, May 25 to Sunday, May 29, 2022 
           </div>
           <div class="agenda__card-title font-weight-medium">
             Competitions
           </div>
           <div class="agenda__card-description mb-2">
-            Participate with your friends in various creative, sports, and fun competitions.
+            Participate in the various creative and fun competitions! Creative competitions submissions due May 20, 2022.
           </div>
         </v-card>
       </div>
@@ -66,13 +66,13 @@
         height="100%"
       >
         <div class="agenda__card-date">
-          Saturday, May 28 - May 29, 2022
+          Wednesday, June 1, 2022
         </div>
         <div class="agenda__card-title font-weight-medium">
-          Main Conference
+          Workshops
         </div>
         <div class="agenda__card-description mb-2">
-          2-day online stream featuring our key note speakers, praise and worship and more.
+          Engaging & authentic conversations featuring eleven workshop presenters.
         </div>
       </v-card>
     </div>
