@@ -47,14 +47,12 @@
           >
             <div>
               <v-btn
-                class="user text-capitalize"
-                color="#121A2E"
+                class="portal-btn mx-3 text-capitalize"
                 width="auto"
                 height="50"
-                elevation="0"
                 @click="redirectToHomePortal"
               >
-                Hello, {{ user.name }}
+                TNC Portal
               </v-btn>
             </div>
             <div class="ml-5">
@@ -98,14 +96,12 @@
               class="user d-none d-sm-block"
             >
               <v-btn
-                class="user text-capitalize"
-                color="#121A2E"
+                class="portal-btn mx-3 text-capitalize"
                 width="auto"
                 height="50"
-                elevation="0"
                 @click="redirectToHomePortal"
               >
-                Hello, {{ user.name }}
+                TNC Portal
               </v-btn>
             </div>
             <div
@@ -199,14 +195,12 @@
                   class="user d-flex flex-column"
                 >
                   <v-btn
-                    class="user text-capitalize"
-                    color="#2D3282"
+                    class="portal-btn text-capitalize"
                     width="auto"
                     height="50"
-                    elevation="0"
                     @click="redirectToHomePortal"
                   >
-                    Hello, {{ user.name }}
+                    TNC Portal
                   </v-btn>
                   <v-btn
                     class="logout-btn mt-5 text-capitalize"
@@ -359,4 +353,14 @@ export default {
     font-size: 30px !important;
   }
 }
+
+.portal-btn {
+  color: #fff !important;
+  background: linear-gradient(90deg, #444CE7 0%, #9E77ED 100%);
+
+  @media only screen and (max-width: 600px) {
+    font-size: 30px !important;
+  }
+}
+
 </style>
