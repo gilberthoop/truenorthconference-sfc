@@ -18,11 +18,13 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('email');
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('region');
             $table->string('area');
-            $table->boolean('in_person');
+            $table->string('in_person');
             $table->string('workshop');
+            $table->rememberToken();
         });
     }
 

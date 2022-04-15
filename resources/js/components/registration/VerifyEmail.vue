@@ -13,20 +13,18 @@
       </div>
 
       <div class="registration__subtitle">
-        We have sent you an email at
+        We have sent a message to
         <span class="registration__email">
-          {{ email }}.
+          {{ email }}
         </span>
-        <br/>Please verify your email to register successfully.
+        with a link to verify your email and registration.
       </div>
       
-      <!-- <AppFlowNavButtons
-        :show-back="true"
-        back-text="Home"
-        continue-text="Log in now"
-        @back="$router.push('/')"
-        @continue="$router.push('login')"
-      /> -->
+      <AppFlowNavButtons
+        :show-back="false"
+        continue-text="Back to home page"
+        @continue="$router.push('/')"
+      />
     </div>
   </div>
 </template>

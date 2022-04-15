@@ -52,7 +52,7 @@
             >
               <div class="d-flex justify-space-between">
                 <div>Password</div>
-                <a href="#" class="login__forgot-password-link">Forgot Password</a>
+                <a href="/password/reset" class="login__forgot-password-link">Forgot Password</a>
               </div>
               <v-text-field
                 v-model="password"
