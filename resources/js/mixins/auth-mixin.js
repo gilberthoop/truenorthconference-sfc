@@ -95,7 +95,6 @@ export default {
     async logOut () {
       await axios.post('/logout')
       this.$store.dispatch('logoutUser')
-      localStorage.clear()
       this.$router.push('/')
     },
 

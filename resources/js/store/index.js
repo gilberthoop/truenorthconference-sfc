@@ -76,9 +76,8 @@ const store = new Vuex.Store({
           const user = (await axios.get("/user")).data
           commit('setUser', user)
           commit('setLoggedIn', true)
-        } catch (error) {
-          console.log(error)
-          dispatch('logout')
+        } catch {
+          dispatch('logoutUser')
         }
       }
     },
@@ -88,6 +87,7 @@ const store = new Vuex.Store({
       commit('setPassword', null)
       commit('setUser', null)
       commit('setLoggedIn', false)
+      localStorage.clear()
       logOut()
     }
   }

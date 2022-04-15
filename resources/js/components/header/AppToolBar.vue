@@ -52,7 +52,7 @@
                 height="50"
                 @click="redirectToHomePortal"
               >
-                TNC Portal
+                Back to Portal
               </v-btn>
             </div>
             <div class="ml-5">
@@ -101,7 +101,7 @@
                 height="50"
                 @click="redirectToHomePortal"
               >
-                TNC Portal
+                Back to Portal
               </v-btn>
             </div>
             <div
@@ -200,7 +200,7 @@
                     height="50"
                     @click="redirectToHomePortal"
                   >
-                    TNC Portal
+                    Back to Portal
                   </v-btn>
                   <v-btn
                     class="logout-btn mt-5 text-capitalize"

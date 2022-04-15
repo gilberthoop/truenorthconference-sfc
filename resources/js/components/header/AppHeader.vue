@@ -151,7 +151,7 @@ export default {
         },
         {
           name: 'Workshops',
-          route: 'home'
+          route: 'workshops'
         }
       ],
       dialog: false
