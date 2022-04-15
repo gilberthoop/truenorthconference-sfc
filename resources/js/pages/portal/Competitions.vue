@@ -34,13 +34,12 @@
 
         <v-card
           class="competitions__card-2 pa-8 mt-6 ml-md-3"
-          color="#F2F4F7"
+          color="#fff"
           elevation="0"
           height="100%"
           max-width="100%"
         >
           <div class="competitions__card-2--title mb-6">
-            Coming Soon
           </div>
         </v-card>
       </div>
@@ -75,10 +74,9 @@ export default {
   font-family: "Outfit", sans-serif;
   color: black;
   margin-top: 150px;
-  min-height: 70vh;
 
   @media only screen and (max-width: 600px) {
-    min-height: 100vh;
+    margin-bottom: 350px;
   }
 
   &__title {
@@ -104,7 +102,7 @@ export default {
   }
 
   &__card-1 {
-    max-width: 80%;
+    max-width: 832px;
 
     @media only screen and (max-width: 960px) {
       max-width: 100%;
