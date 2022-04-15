@@ -2,7 +2,7 @@
   <v-app>
     <AppHeader />
   
-    <div class="competitions mb-12 mx-6 mx-sm-9 mx-md-16">
+    <div class="competitions mx-6 mx-sm-9 mx-md-16">
       <div class="competitions__title">
         Competitions
       </div>
@@ -74,10 +74,7 @@ export default {
   font-family: "Outfit", sans-serif;
   color: black;
   margin-top: 150px;
-
-  @media only screen and (max-width: 600px) {
-    margin-bottom: 350px;
-  }
+  margin-bottom: 320px;
 
   &__title {
     font-size: 72px;
