@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import Participants from './pages/Participants'
 import PortalHome from './pages/portal/PortalHome'
 import Competitions from './pages/portal/Competitions'
+import Workshops from './pages/portal/Workshops'
 
 const routes = [
   {
@@ -68,6 +69,19 @@ const routes = [
     path: '/portal/competitions',
     component: Competitions,
     name: 'portal-competitions',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/portal/workshops',
+    component: Workshops,
+    name: 'portal-workshops',
     meta: { requiresAuth: true },
     beforeEnter: (to, from, next) => {
       if (to.meta.requiresAuth && !isLoggedIn()) {
