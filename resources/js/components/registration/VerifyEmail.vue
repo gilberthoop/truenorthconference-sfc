@@ -13,21 +13,20 @@
       </div>
 
       <div class="registration__subtitle">
-        <!-- We have sent you an email at -->
-        You may log in anytime to access the True North Conference Portal.
-        <!-- <span class="registration__email">
-          {{ email }}
-        </span> -->
-        <!-- for verification -->
+        We have sent you an email at
+        <span class="registration__email">
+          {{ email }}.
+        </span>
+        <br/>Please verify your email to register successfully.
       </div>
       
-      <AppFlowNavButtons
+      <!-- <AppFlowNavButtons
         :show-back="true"
         back-text="Home"
         continue-text="Log in now"
         @back="$router.push('/')"
         @continue="$router.push('login')"
-      />
+      /> -->
     </div>
   </div>
 </template>
