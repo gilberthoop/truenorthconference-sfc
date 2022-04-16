@@ -143,7 +143,10 @@ export default {
         this.loading = true
         const response = await axios.post('/register', user)
         
-        //TODO: Log users in automatically
+        this.$store.commit('setEmail', null)
+        this.$store.commit('setPassword', null)
+
+        this.step++
       } catch (error) {
         this.errorMessage = error.response.data.message
       }

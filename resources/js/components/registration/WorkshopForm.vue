@@ -189,7 +189,6 @@ export default {
 
     handleContinue () {
       this.onRegistrationSubmit()
-      this.step++
     }
   }
 }
