@@ -92,15 +92,15 @@ export default {
   font-family: "Outfit", sans-serif;
   color: #fff;
   position: relative;
-  margin: 310px 80px 120px;
+  margin: 200px 80px 120px;
   min-height: 100vh;
 
   @media only screen and (min-width: 600px) and (max-width: 960px) {
-    margin: 250px 40px;
+    margin: 180px 40px;
   }
 
   @media only screen and (max-width: 600px) {
-    margin: 250px 20px 100px;
+    margin: 130px 20px 100px;
   }
 
   &__title {
