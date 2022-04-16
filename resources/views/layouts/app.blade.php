@@ -24,10 +24,32 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
+<style>
+    #navigation-menu {
+        background-color: #2D3282 !important;
+    }
+
+    .navbar-light .navbar-brand,
+    .navbar-light .navbar-nav .nav-link,
+    .navbar-light .navbar-toggler {
+        color: #fff !important;
+        font-size: 18px;
+    }
+
+    .card-header {
+        font-size: 36px;
+    }
+
+    .col-form-label,
+    .btn {
+        font-size: 18px;
+    }
+</style>
+
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav id="navigation-menu" class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div id="menu-items" class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     SFC True North Conference
                 </a>
