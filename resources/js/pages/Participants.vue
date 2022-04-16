@@ -16,7 +16,6 @@
       :loading="loading"
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
-      dark
     />
   </div>
 </template>
@@ -119,5 +118,13 @@ export default {
 
 ::v-deep .theme--light.v-label {
   color: #fff;
+}
+
+::v-deep .theme--light.v-data-table {
+  background-color: #EEF4FF;
+}
+
+::v-deep .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+  color: #444CE7;
 }
 </style>
