@@ -12,7 +12,6 @@
       :items="participants"
       :items-per-page="10"
       :search="search"
-      :custom-filter="filterName"
       :loading="loading"
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
@@ -86,14 +85,6 @@ export default {
       }
 
       this.loading = false
-    },
-
-    filterName (value, search, item) {
-      console.log('filterName')
-      return value != null &&
-          search != null &&
-          typeof value === 'string' &&
-          value.toString().indexOf(search) !== -1
     }
   }
 }
@@ -124,7 +115,12 @@ export default {
   background-color: #EEF4FF;
 }
 
-::v-deep .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th {
+::v-deep .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th,
+::v-deep .theme--light.v-data-table .v-data-table__empty-wrapper {
   color: #444CE7;
+}
+
+::v-deep .theme--light.v-input input {
+  color: #fff;
 }
 </style>
