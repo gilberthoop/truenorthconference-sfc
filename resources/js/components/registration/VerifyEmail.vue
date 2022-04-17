@@ -23,7 +23,7 @@
       <AppFlowNavButtons
         :show-back="false"
         continue-text="Back to home page"
-        @continue="$router.push('/')"
+        @continue="continueHandler"
       />
     </div>
   </div>
@@ -42,6 +42,13 @@ export default {
   components: {
     AppFlowNavButtons,
     LogoBlackAndRed
+  },
+
+  methods: {
+    continueHandler () {
+      this.step = 0
+      $router.push('/')
+    }
   }
 }
 </script>
