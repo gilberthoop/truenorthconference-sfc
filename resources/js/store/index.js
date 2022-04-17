@@ -9,6 +9,7 @@ const defaultStoreState = {
   name: null,
   email: null,
   password: null,
+  confirmation: null,
   region: null,
   area: null,
   inPerson: null,
@@ -37,6 +38,10 @@ const store = new Vuex.Store({
 
     setPassword (state, value) {
       state.password = value
+    },
+
+    setConfirmation (state, value) {
+      state.confirmation = value
     },
 
     setRegion (state, value) {
