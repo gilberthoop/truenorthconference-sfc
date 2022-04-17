@@ -11,7 +11,7 @@
         <span class="testimony__message--gradient">experiencing Christ.</span>
       </div>
       <div class="testimony__author">
-        Neil Yapp
+        SFC Vision
       </div>
 
       <v-img
