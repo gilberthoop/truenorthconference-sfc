@@ -210,7 +210,7 @@ export default {
         [
           'Greater Toronto East',
           'Greater Toronto West',
-          'Hamilton - St. Catherine',
+          'Hamilton-St. Catharines',
           'Ottawa'
         ],
         [
