@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // })->where('any', '^(?!api\/)[\/\w\.-]*');
 
-// Auth::routes();
-Auth::routes(['verify' => true]);
+Auth::routes();
+// Auth::routes(['verify' => true]);
 
 Route::middleware('auth')->get('/user', function (Request $request) {
     return $request->user();
