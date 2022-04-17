@@ -21,6 +21,7 @@
       height="60px"
       width="366px"
       depressed
+      :loading="loading"
       @click="navigateContinue"
     >
       {{ continueText }}
@@ -56,6 +57,12 @@ export default {
       default: 'Continue',
       required: false
     },
+
+    loading: {
+      type: Boolean,
+      default: false,
+      required: false
+    }
   },
 
   methods: {

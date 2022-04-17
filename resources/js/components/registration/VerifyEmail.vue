@@ -12,12 +12,16 @@
         Thank you!
       </div>
 
-      <div class="registration__subtitle">
+      <div class="registration__subtitle mb-16">
         We have sent a message to
         <span class="registration__email">
           {{ email }}
         </span>
         with a link to verify your email and registration.
+
+        <p class="my-7">
+          If the email verification link does not appear in your inbox, kindly check your spam folder.
+        </p>
       </div>
       
       <AppFlowNavButtons
@@ -47,7 +51,9 @@ export default {
   methods: {
     continueHandler () {
       this.step = 0
-      $router.push('/')
+      this.$store.commit('setEmail', null)
+      this.$store.commit('setPassword', null)
+      this.$router.push('/')
     }
   }
 }
@@ -56,7 +62,7 @@ export default {
 <style scoped lang="scss">
 .registration {
   font-family: "Outfit", sans-serif;
-  line-height: 44px;
+  line-height: 32px;
   display: flex;
   flex-direction: row;
   flex-grow: 1;

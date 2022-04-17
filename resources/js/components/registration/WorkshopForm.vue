@@ -121,6 +121,7 @@
         <AppFlowNavButtons
           :show-back="true"
           :continue-text="$vuetify.breakpoint.xsOnly ? 'Register' : 'Complete my registration'"
+          :loading="loading"
           @back="handleBack"
           @continue="handleContinue"
         />

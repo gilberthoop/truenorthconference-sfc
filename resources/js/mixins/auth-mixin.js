@@ -142,10 +142,6 @@ export default {
       try {
         this.loading = true
         const response = await axios.post('/register', user)
-        
-        this.$store.commit('setEmail', null)
-        this.$store.commit('setPassword', null)
-
         this.step++
       } catch (error) {
         this.errorMessage = error.response.data.message
