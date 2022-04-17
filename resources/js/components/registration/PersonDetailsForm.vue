@@ -235,7 +235,7 @@ export default {
 
   computed: {
     nameInputRules () {
-      return this.nameFieldFocused ? '' : 'required|alpha_spaces||max:40|min:3'
+      return this.nameFieldFocused ? '' : 'required|max:40|min:3'
     },
 
     emailInputRules () {
