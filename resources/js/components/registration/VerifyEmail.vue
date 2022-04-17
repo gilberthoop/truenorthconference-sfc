@@ -12,22 +12,26 @@
         Thank you!
       </div>
 
-      <div class="registration__subtitle mb-16">
-        We have sent a message to
+      <div class="registration__subtitle">
+        <!-- We have sent a message to
         <span class="registration__email">
           {{ email }}
         </span>
-        with a link to verify your email and registration.
-
-        <p class="my-7">
-          If the email verification link does not appear in your inbox, kindly check your spam folder.
-        </p>
+        with a link to verify your email and registration. -->
+        You may log in anytime to access the True North Conference Portal.
       </div>
       
-      <AppFlowNavButtons
+      <!-- <AppFlowNavButtons
         :show-back="false"
         continue-text="Back to home page"
         @continue="continueHandler"
+      /> -->
+      <AppFlowNavButtons
+        :show-back="true"
+        back-text="Home"
+        continue-text="Log in now"
+        @back="$router.push('/')"
+        @continue="$router.push('login')"
       />
     </div>
   </div>

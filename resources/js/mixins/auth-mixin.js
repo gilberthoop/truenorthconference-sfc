@@ -46,6 +46,15 @@ export default {
       }
     },
 
+    confirmation: {
+      get () {
+        return this.$store.state.confirmation
+      },
+      set (value) {
+        return this.$store.commit('setConfirmation', value)
+      }
+    },
+
     region: {
       get () {
         return this.$store.state.region
@@ -99,9 +108,9 @@ export default {
     },
 
     async logIn () {
-      this.errorMessage = ''
-      const validInputs = await this.$refs.observer.validate(); 
-      if (!validInputs) return
+      // this.errorMessage = ''
+      // const validInputs = await this.$refs.observer.validate(); 
+      // if (!validInputs) return
 
       try {
         this.loading = true
@@ -142,7 +151,10 @@ export default {
       try {
         this.loading = true
         const response = await axios.post('/register', user)
-        this.step++
+        // this.step++
+
+        // Log in user
+        this.logIn()
       } catch (error) {
         this.errorMessage = error.response.data.message
       }

@@ -68,6 +68,7 @@
           <ValidationProvider
             v-slot="{ errors }"
             :rules="passwordInputRules"
+            vid="password"
           >
             <div>Password*</div>
             <v-text-field
@@ -84,6 +85,24 @@
               @blur="passwordFieldFocused = false"
             />
           </ValidationProvider>
+
+          <ValidationProvider
+              v-slot="{ errors }"
+              rules="required|confirmed:password"
+              data-vv-as="password"
+            >
+              <div>Confirm Password*</div>
+              <v-text-field
+                v-model="confirmation"
+                type="password"
+                placeholder="Confirm password"
+                outlined
+                dense
+                color="#344054"
+                :error-messages="errors && errors.length > 0 ? 'The passwords do not match' : ''"
+                class="login__form--greyed my-1"
+              />
+            </ValidationProvider>
 
           <ValidationProvider
             v-slot="{ errors }"

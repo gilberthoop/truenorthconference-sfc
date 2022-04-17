@@ -32,8 +32,7 @@ export default {
     currentPage () {
       const components = {
         1: PersonDetailsForm,
-        2: WorkshopForm,
-        3: VerifyEmail
+        2: WorkshopForm
       }
 
       return components[this.step]
