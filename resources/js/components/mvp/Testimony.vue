@@ -7,9 +7,8 @@
       height="525"
     >
       <div class="testimony__message my-4">
-        TNC
-        <span class="testimony__message--gradient">changed my life</span>
-        and I learn so many things every year.
+        Every single man and woman all over the world
+        <span class="testimony__message--gradient">experiencing Christ.</span>
       </div>
       <div class="testimony__author">
         Neil Yapp

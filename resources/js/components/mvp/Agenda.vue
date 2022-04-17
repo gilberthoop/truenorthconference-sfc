@@ -80,14 +80,8 @@
 </template>
 
 <script>
-import Marquee from '../../components/animation/Marquee'
-
 export default {
   name: 'Agenda',
-
-  components: {
-    Marquee
-  },
 
   data () {
     return {
@@ -96,26 +90,21 @@ export default {
           day: 'Saturday,',
           date: 'May 21, 2022',
           title: 'Workshops',
-          image: '/images/agenda/workshop.png',
           description: 'Engaging & authentic conversations featuring eleven workshop presenters.'
         },
         {
           day: 'Wednesday,',
           date: 'May 25, 2022',
           title: 'Competitions',
-          image: '/images/agenda/competitions.png',
           description: 'Participate with your friends in various creative, sports, and fun competitions.'
         },
         {
           day: 'Saturday,',
           date: 'May 28 - May 29, 2022',
           title: 'Main Conference',
-          image: '/images/agenda/conference.png',
           description: ' 2-day online stream featuring our key note speakers, praise and worship and more.'
         }
-      ],
-      lineImgSrc: '/images/banner/line-1.png',
-      tncBannerImgSrc: '/images/banner/content.png'
+      ]
     }
   },
 
