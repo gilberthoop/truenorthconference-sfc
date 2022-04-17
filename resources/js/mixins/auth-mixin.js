@@ -151,7 +151,7 @@ export default {
       try {
         this.loading = true
         const response = await axios.post('/register', user)
-        // this.step++
+        this.step = 0
 
         // Log in user
         this.logIn()
