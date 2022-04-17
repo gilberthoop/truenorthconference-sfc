@@ -90,7 +90,7 @@
         <div class="portal-home__schedule--title my-4">
           Conference Schedule
         </div>
-        <div class="portal-home__schedule--timezone">
+        <!-- <div class="portal-home__schedule--timezone">
           <div class="portal-home__schedule--timezone-label">
             Select your timezone
           </div>
@@ -103,7 +103,7 @@
               color="#3538CD"
             />
           </div>
-        </div>
+        </div> -->
 
         <v-card
           class="portal-home__schedule--card pa-16"

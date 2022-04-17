@@ -24,7 +24,7 @@
           </div>
 
           <div class="workshops__card-1--title">
-            Area you ready for workshops?
+            Are you ready for workshops?
           </div>
 
           <div class="workshops__card-1--subtitle my-4">
