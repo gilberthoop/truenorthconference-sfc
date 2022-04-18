@@ -276,6 +276,7 @@ export default {
       if (!validInputs) return
 
       this.step++
+      window.scrollTo(0, 0)
     },
 
     fetchAreas (region) {

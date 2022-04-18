@@ -187,6 +187,7 @@ export default {
   methods: {
     handleBack () {
       this.step--
+      window.scrollTo(0, 0)
     },
 
     handleContinue () {
