@@ -1,14 +1,25 @@
 <template>
   <div class="participants-table pa-7 pa-sm-12">
-  <div class="d-flex flex-column justify-center align-center">
     <div class="participants-table__title">SFC True North Conference Participants</div>
-    <div>
+
+  <div class="d-flex justify-space-around flex-column flex-sm-row align-center">
+    <div class="my-3">
       <download-excel
         :data="participants"
         type="csv"
       >
         <v-btn class="participants-table__download-btn">
-          Download
+          Download as CSV
+        </v-btn>
+      </download-excel>
+    </div>
+
+    <div class="my-3">
+      <download-excel
+        :data="participants"
+      >
+        <v-btn class="participants-table__download-btn">
+          Download as XLS
         </v-btn>
       </download-excel>
     </div>
@@ -29,16 +40,6 @@
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
     />
-    <div class="mt-16">
-      <download-excel
-        :data="participants"
-        type="csv"
-      >
-        <v-btn class="text-capitalize">
-          Download
-        </v-btn>
-      </download-excel>
-    </div>
   </div>
 </template>
 
