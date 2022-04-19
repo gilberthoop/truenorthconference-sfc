@@ -3,7 +3,7 @@ import { logIn } from '../utils/auth'
 export default {
   data () {
     return {
-      bgImgSrc: '/images/registration.png',
+      bgImgSrc: '/images/registration.webp',
       loading: false,
       errorMessage: ''
     }
