@@ -1,6 +1,19 @@
 <template>
   <div class="participants-table pa-7 pa-sm-12">
+  <div class="d-flex flex-column justify-center align-center">
     <div class="participants-table__title">SFC True North Conference Participants</div>
+    <div>
+      <download-excel
+        :data="participants"
+        type="csv"
+      >
+        <v-btn class="participants-table__download-btn">
+          Download
+        </v-btn>
+      </download-excel>
+    </div>
+  </div>
+
     <v-text-field
       v-model="search"
       label="Search a name (case-sensitive)"
@@ -16,6 +29,16 @@
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
     />
+    <div class="mt-16">
+      <download-excel
+        :data="participants"
+        type="csv"
+      >
+        <v-btn class="text-capitalize">
+          Download
+        </v-btn>
+      </download-excel>
+    </div>
   </div>
 </template>
 
@@ -104,6 +127,12 @@ export default {
     @media (min-width: 600px) {
       font-size: 36px;
     }
+  }
+
+  &__download-btn {
+    margin: auto;
+    text-transform: none;
+    font-size: 16px;
   }
 }
 
