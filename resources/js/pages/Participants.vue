@@ -27,7 +27,7 @@
 
     <v-text-field
       v-model="search"
-      label="Search a name (case-sensitive)"
+      label="Search a name"
       class="mx-auto mx-sm-10"
       color="#fff"
     />
