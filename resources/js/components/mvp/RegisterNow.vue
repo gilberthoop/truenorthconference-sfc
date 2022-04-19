@@ -68,8 +68,8 @@ export default {
 
   data () {
     return {
-      firstImgSrc: '/images/register-now/register1.png',
-      secondImgSrc: '/images/register-now/register2.png',
+      firstImgSrc: '/images/register-now/register1.webp',
+      secondImgSrc: '/images/register-now/register2.webp',
       arrowImgSrc: '/images/register-now/arrow-right-circle.png',
       ticksImgSrc: '/images/register-now/ticks.png',
       starLeftImgSrc: '/images/register-now/star1.png',

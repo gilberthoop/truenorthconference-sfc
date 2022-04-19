@@ -54,7 +54,7 @@ export default {
 
   data () {
     return {
-      themeImgSrc: '/images/theme/theme.png'
+      themeImgSrc: '/images/theme/theme.webp'
     }
   },
 

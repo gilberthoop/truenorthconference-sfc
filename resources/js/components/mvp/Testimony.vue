@@ -30,7 +30,7 @@ export default {
 
   data () {
     return {
-      imgSrc: '/images/testimony/testimony.png'
+      imgSrc: '/images/testimony/testimony.webp'
     }
   }
 }
