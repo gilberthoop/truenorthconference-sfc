@@ -71,11 +71,11 @@ export default {
 
   data () {
     return {
-      topLeftImg: '/images/introduction/top-left.png',
-      topRightImg: '/images/introduction/top-right.png',
-      bottomLeftImg: '/images/introduction/bottom-left.png',
-      bottomRightImg: '/images/introduction/bottom-right.png',
-      sfcLogo: '/images/introduction/sfc-logo.png'
+      topLeftImg: '/images/introduction/top-left.webp',
+      topRightImg: '/images/introduction/top-right.webp',
+      bottomLeftImg: '/images/introduction/bottom-left.webp',
+      bottomRightImg: '/images/introduction/bottom-right.webp',
+      sfcLogo: '/images/introduction/sfc-logo.webp'
     }
   },
 
