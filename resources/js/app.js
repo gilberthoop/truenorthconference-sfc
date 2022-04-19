@@ -7,9 +7,11 @@ import VeeValidate from 'vee-validate'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import JsonExcel from 'vue-json-excel'
 
 library.add(faUserSecret)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component("downloadExcel", JsonExcel);
 
 import router from './routes'
 import store from './store'
