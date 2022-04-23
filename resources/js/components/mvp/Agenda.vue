@@ -31,13 +31,13 @@
           height="100%"
         >
           <div class="agenda__card-date">
-            Saturday, May 28 - May 29, 2022
+            Friday May 27 - Saturday, May 28, 2022 
           </div>
           <div class="agenda__card-title font-weight-medium">
-            Main Conference
+            Competitions
           </div>
           <div class="agenda__card-description mb-2">
-            2-day online stream featuring our key note speakers, praise and worship and more.
+            Participate in the various creative and fun competitions! Creative competitions submissions due May 20, 2022.
           </div>
         </v-card>
 
@@ -48,13 +48,13 @@
           height="100%"
         >
           <div class="agenda__card-date">
-            Wednesday, May 25 to Sunday, May 29, 2022 
+            Friday, May 27 - Saturday, May 28, 2022
           </div>
           <div class="agenda__card-title font-weight-medium">
-            Competitions
+            Main Conference
           </div>
           <div class="agenda__card-description mb-2">
-            Participate in the various creative and fun competitions! Creative competitions submissions due May 20, 2022.
+            2-day online stream featuring our key note speakers, praise and worship and more.
           </div>
         </v-card>
       </div>
@@ -99,8 +99,8 @@ export default {
           description: 'Participate with your friends in various creative, sports, and fun competitions.'
         },
         {
-          day: 'Saturday,',
-          date: 'May 28 - May 29, 2022',
+          day: 'Friday,',
+          date: 'May 27 - Saturday, May 28, 2022',
           title: 'Main Conference',
           description: ' 2-day online stream featuring our key note speakers, praise and worship and more.'
         }
