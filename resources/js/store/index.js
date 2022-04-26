@@ -6,6 +6,8 @@ Vue.use(Vuex)
 
 const defaultStoreState = {
   step: 1,
+  firstName: null,
+  lastName: null,
   name: null,
   email: null,
   password: null,
@@ -30,6 +32,14 @@ const store = new Vuex.Store({
 
     setName (state, value) {
       state.name = value
+    },
+
+    setFirstName (state, value) {
+      state.firstName = value
+    },
+
+    setLastName (state, value) {
+      state.lastName = value
     },
 
     setEmail (state, value) {

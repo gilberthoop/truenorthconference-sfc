@@ -28,6 +28,24 @@ export default {
       }
     },
 
+    firstName: {
+      get () {
+        return this.$store.state.firstName
+      },
+      set (value) {
+        return this.$store.commit('setFirstName', value)
+      }
+    },
+
+    lastName: {
+      get () {
+        return this.$store.state.lastName
+      },
+      set (value) {
+        return this.$store.commit('setLastName', value)
+      }
+    },
+
     email: {
       get () {
         return this.$store.state.email
