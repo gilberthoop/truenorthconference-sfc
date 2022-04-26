@@ -29,15 +29,35 @@
             v-slot="{ errors }"
             :rules="nameInputRules"
           >
-            <div>Name*</div>
+            <div>First Name*</div>
             <v-text-field
-              v-model="name"
+              v-model="firstName"
               type="text"
-              placeholder="Enter your name"
+              placeholder="Enter your first name"
               outlined
               dense
               color="#344054"
-              hint="Must be a full name with at least 3 letters"
+              hint="Must be a first name with at least 2 letters"
+              :error-messages="errors && errors.length > 0 ? 'Please enter a valid name' : ''"
+              class="registration__form--greyed my-1"
+              @focus="nameFieldFocused = true"
+              @blur="nameFieldFocused = false"
+            />
+          </ValidationProvider>
+
+          <ValidationProvider
+            v-slot="{ errors }"
+            :rules="nameInputRules"
+          >
+            <div>Last Name*</div>
+            <v-text-field
+              v-model="lastName"
+              type="text"
+              placeholder="Enter your last name"
+              outlined
+              dense
+              color="#344054"
+              hint="Must be a full name with at least 2 letters"
               :error-messages="errors && errors.length > 0 ? 'Please enter a valid name' : ''"
               class="registration__form--greyed my-1"
               @focus="nameFieldFocused = true"
@@ -267,6 +287,12 @@ export default {
 
     regionInputRules () {
       return this.regionFieldFocused ? '' : 'required|max:40|min:3'
+    }
+  },
+
+  watch: {
+    lastName (value) {
+      this.name = `${this.firstName} ${value}`
     }
   },
 
