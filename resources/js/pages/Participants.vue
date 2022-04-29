@@ -52,6 +52,7 @@ export default {
       loading: false,
       search: '',
       participants: [],
+      spreadsheet: [],
       headers: [
         {
           text: 'Name',
@@ -98,12 +99,14 @@ export default {
           this.participants.push({
             name: participant.name,
             email: participant.email,
-            region: participant.region,
             area: participant.area,
             inPerson: participant.in_person,
             workshop: participant.workshop
           })
         })
+
+        // const { region, ... } = this.spreadsheet
+        // this.spreadsheet = 
       } catch (error) {
         console.log(error)
       }
