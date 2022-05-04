@@ -66,7 +66,7 @@
         height="100%"
       >
         <div class="agenda__card-date">
-          Wednesday, June 1, 2022
+          Wednesday, June 1, 2022 @ 8PM EDT
         </div>
         <div class="agenda__card-title font-weight-medium">
           Workshops

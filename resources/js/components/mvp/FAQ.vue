@@ -49,7 +49,7 @@ export default {
       faqs: [
         {
           question: 'Who can attend TNC?',
-          answer: 'True North Conference is a 2 day conference that is open to any young adult (ages 18-39). TNC is open to everyone! Register as an \"SFC+\" to indicate that you are not a current SFC member.',
+          answer: 'True North Conference is 2 day conference that is open to any young adult (ages 18-39). TNC is open to everyone! If you are currently not an SFC member, please note that in your registration and choose the region and area that best applies to you.',
         },
         {
           question: 'How often does TNC happen?',
