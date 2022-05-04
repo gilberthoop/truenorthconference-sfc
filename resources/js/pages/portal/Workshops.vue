@@ -28,7 +28,8 @@
           </div>
 
           <div class="workshops__card-1--subtitle my-4">
-            Thanks for signing up for a workshop! We’ll release more information on how to access Workshops closer to the date.
+            Thanks for signing up for a workshop! Workshops will be held on Wednesday, June 1, 2022 (5 PM PDT/8 PM EDT).
+            We’ll release more information on how to access Workshops closer to the date.
           </div>
         </v-card>
 
