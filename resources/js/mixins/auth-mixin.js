@@ -78,6 +78,7 @@ export default {
         return this.$store.state.region
       },
       set (value) {
+        this.area = null
         return this.$store.commit('setRegion', value)
       }
     },

@@ -145,10 +145,13 @@
           </ValidationProvider>
 
           <ValidationProvider
+            v-if="region"
             v-slot="{ errors }"
             rules="required|max:40|min:3"
           >
-            <div v-if="region !== 'International/Other'">
+            <div
+              v-if="region !== 'International' && region !== 'Other' && region !== 'SFC+'"
+            >
               <div>Which area are you from?*</div>
               <v-select
                 v-model="area"
@@ -232,12 +235,14 @@ export default {
       passwordFieldFocused: false,
       regionFieldFocused: false,
       regions: [
-        'Atlantic (QC, NB, NL, NS, PEI)',
-        'Capital (ON)',
-        'Central (MB, SK, NU)',
-        'Mountain (AB, NWT)',
-        'Pacific (BC, YT)',
-        'International/Other'
+        { text: 'Atlantic (QC, NB, NL, NS, PEI)', value: 'Atlantic (QC, NB, NL, NS, PEI)' },
+        { text: 'Capital (ON)', value: 'Capital (ON)' },
+        { text: 'Central (MB, SK, NU)', value: 'Central (MB, SK, NU)' },
+        { text: 'Mountain (AB, NWT)', value: 'Mountain (AB, NWT)' },
+        { text: 'Pacific (BC, YT)', value: 'Pacific (BC, YT)' },
+        { text: 'International', value: 'International' },
+        { text: 'Other', value: 'Other' },
+        { text: 'I am not an SFC member', value: 'SFC+' }
       ],
       areaList: [
         [
@@ -274,7 +279,7 @@ export default {
 
   computed: {
     nameInputRules () {
-      return this.nameFieldFocused ? '' : 'required|max:40|min:3'
+      return this.nameFieldFocused ? '' : 'required|max:40|min:2'
     },
 
     emailInputRules () {
