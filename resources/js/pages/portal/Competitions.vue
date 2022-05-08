@@ -24,7 +24,7 @@
           </div>
 
           <div class="competitions__card-1--title">
-            Competitions are different this year
+            Competitions will be held on Saturday, July 9, 2022.
           </div>
 
           <div class="competitions__card-1--subtitle my-4">
