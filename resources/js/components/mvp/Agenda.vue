@@ -23,42 +23,6 @@
     </div>
   
     <div class="d-flex flex-column">
-      <div class="d-flex flex-column flex-md-row justify-space-between">
-        <v-card
-          class="agenda__card pa-5 mt-9 mr-0 mr-md-4"
-          color="#1D2939"
-          width="100%"
-          height="100%"
-        >
-          <div class="agenda__card-date">
-            Friday May 27 - Saturday, May 28, 2022 
-          </div>
-          <div class="agenda__card-title font-weight-medium">
-            Competitions
-          </div>
-          <div class="agenda__card-description mb-2">
-            Participate in the various creative and fun competitions! Creative competitions submissions due May 20, 2022.
-          </div>
-        </v-card>
-
-        <v-card
-          class="agenda__card pa-5 mt-9 ml-0 ml-md-4"
-          color="#1D2939"
-          width="100%"
-          height="100%"
-        >
-          <div class="agenda__card-date">
-            Friday, May 27 - Saturday, May 28, 2022
-          </div>
-          <div class="agenda__card-title font-weight-medium">
-            Main Conference
-          </div>
-          <div class="agenda__card-description mb-2">
-            2-day online stream featuring our key note speakers, praise and worship and more.
-          </div>
-        </v-card>
-      </div>
-
       <v-card
         class="agenda__card pa-5 mt-9"
         color="#1D2939"
@@ -66,15 +30,51 @@
         height="100%"
       >
         <div class="agenda__card-date">
-          Wednesday, June 1, 2022 @ 8PM EDT
+          Friday, May 27 - Saturday, May 28, 2022
         </div>
         <div class="agenda__card-title font-weight-medium">
-          Workshops
+          Main Conference
         </div>
         <div class="agenda__card-description mb-2">
-          Engaging & authentic conversations featuring eleven workshop presenters.
+          2-day online stream featuring our key note speakers, praise and worship and more.
         </div>
       </v-card>
+
+      <div class="d-flex flex-column flex-md-row justify-space-between">
+        <v-card
+          class="agenda__card pa-5 mt-9 mr-md-4"
+          color="#1D2939"
+          width="100%"
+          height="100%"
+        >
+          <div class="agenda__card-date">
+            Wednesday, June 1, 2022 @ 8PM EDT
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Workshops
+          </div>
+          <div class="agenda__card-description mb-2">
+            Engaging & authentic conversations featuring eleven workshop presenters.
+          </div>
+        </v-card>
+
+        <v-card
+          class="agenda__card pa-5 mt-9 ml-md-4"
+          color="#1D2939"
+          width="100%"
+          height="100%"
+        >
+          <div class="agenda__card-date">
+            Saturday, July 9, 2022
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Competitions
+          </div>
+          <div class="agenda__card-description mb-2">
+            Participate in the various creative and fun competitions! Competition guidelines will be released in June 2022.
+          </div>
+        </v-card>
+      </div>
     </div>
 </div>
 </template>
