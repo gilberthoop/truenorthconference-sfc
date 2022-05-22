@@ -87,61 +87,32 @@
       </div>
 
       <div class="portal-home__schedule my-16">
-        <div class="portal-home__schedule--title my-4">
-          Conference Schedule
-        </div>
-        <!-- <div class="portal-home__schedule--timezone">
-          <div class="portal-home__schedule--timezone-label">
-            Select your timezone
-          </div>
-          <div class="portal-home__schedule--timezone-select">
-            <v-select
-              class="my-4"
-              :items="['PST']"
-              filled
-              background-color="#EEF4FF"
-              color="#3538CD"
-            />
-          </div>
-        </div> -->
+        <Schedule />
+      </div>
 
-        <v-card
-          class="portal-home__schedule--card pa-16"
-          max-width="100%"
-          max-height="100%"
-          color="#F5F8FF"
-          elevation="0"
-        >
-          <v-img
-            :src="starIcon"
-            class="mb-3 mx-auto"
-            height="20"
-            width="20"
-          />
-          <div class="portal-home__schedule--card-title my-2">
-            No schedule yet
-          </div>
-          <div class="portal-home__schedule--card-subtitle">
-            The final schedule will appear here when it’s available
-          </div>
-        </v-card>
+      <div class="portal-home__ancop my-5">
+        <Ancop />
       </div>
     </div>
 
-    <AppFooter />
+    <!-- <AppFooter /> -->
   </v-app>
 </template>
 
 <script>
 import AppHeader from '../../components/header/AppHeader'
 import AppFooter from '../../components/footer/AppFooter'
+import Schedule from './components/Schedule'
+import Ancop from './components/Ancop'
 
 export default {
   name: 'PortalHome',
 
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    Schedule,
+    Ancop
   },
 
   data () {
@@ -149,8 +120,11 @@ export default {
       starIcon: '/images/star-icon-purple.png',
       eventHeads: '/images/event-heads.png',
       reminders: [
-        'Invite your friends to join!',
-        'Encourage your chapter to compete in competitions'
+        'Bring a journal, rosary, and a bible.',
+        'Place a crucifix.',
+        'Do no attend while driving.',
+        'Close all other tabs and go on Do Not Disturb.',
+        'Make a donation to ANCOP Canada. (See details below)'
       ]
     }
   },
@@ -190,7 +164,7 @@ export default {
   }
 
   &__card-1 {
-    max-width: 832px;
+    max-width: 780px;
 
     @media only screen and (max-width: 960px) {
       max-width: 100%;
@@ -245,48 +219,6 @@ export default {
 
   &__schedule {
     max-width: 100%;
-
-    &--title {
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 60px;
-
-      @media only screen and (max-width: 600px) {
-        font-size: 30px;
-        line-height: 38px;
-      }
-    }
-
-    &--timezone {
-      max-width: 300px;
-
-      &-label {
-        font-size: 24px;
-        line-height: 32px;
-      }
-
-      &-select {
-        max-width: 200px;
-        ::v-deep .theme--light.v-select .v-select__selections {
-          color: #3538CD !important;
-        }
-      }
-    }
-
-    &--card {
-      text-align: center;
-      font-size: 20px;
-      line-height: 30px;
-
-      @media only screen and (max-width: 600px) {
-        font-size: 16px;
-        line-height: 24px;
-      }
-
-      &-title {
-        font-weight: 700;
-      }
-    }
   }
 }
 
