@@ -30,7 +30,8 @@ const app = new Vue({
       'index': Index
     },
 
-    async beforeCreate () {
-      this.$store.dispatch("loadUser");
-    }
+    // Commented out to tmeporarily allow login for any user
+    // async beforeCreate () {
+    //   this.$store.dispatch("loadUser");
+    // }
 });
