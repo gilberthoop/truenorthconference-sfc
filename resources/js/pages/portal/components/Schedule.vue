@@ -370,12 +370,22 @@ export default {
     }
 
       &-time {
+        font-size: 20px !important;
         margin-right: 200px;
         border-bottom: 2px solid #A4BCFD !important;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 16px !important;
+        }
       }
 
       &-topic {
+        font-size: 20px !important;
         border-bottom: 2px solid #A4BCFD !important;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 16px !important;
+        }
       
         &--title {
           font-weight: 700;
@@ -396,7 +406,7 @@ export default {
     padding-left: 50px;
   }
 
-  @media only screen and (max-width: 330px) {
+  @media only screen and (max-width: 340px) {
     padding-left: 25px;
   }
 }
