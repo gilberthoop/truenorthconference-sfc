@@ -127,21 +127,21 @@ export default {
     },
 
     async logIn () {
-      // this.errorMessage = ''
-      // const validInputs = await this.$refs.observer.validate(); 
-      // if (!validInputs) return
-
       try {
         this.loading = true
-        await axios.get('/sanctum/csrf-cookie')
-        await axios.post('/login', {
-          email: this.email,
-          password: this.password
-        })
+        // await axios.get('/sanctum/csrf-cookie')
+        // await axios.post('/login', {
+        //   email: this.email,
+        //   password: this.password
+        // })
 
         // Set user login status on
+        // logIn()
+        // this.$store.dispatch('loadUser')
+
+        // temporarily log in any user
         logIn()
-        this.$store.dispatch('loadUser')
+        this.$store.commit('setLoggedIn', true)
 
         // Redirect to portal page
         this.redirectToHomePortal()
