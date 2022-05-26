@@ -35,7 +35,7 @@
         It is a journey rooted in Christ and with healing through Him. 
       </div>
 
-      <v-btn
+      <!-- <v-btn
         class="theme__info-button text-capitalize"
         width="auto"
         height="60px"
@@ -43,7 +43,7 @@
         @click="redirectToRegistration"
       >
         Register now
-      </v-btn>
+      </v-btn> -->
     </div>
   </v-card>
 </template>
@@ -60,7 +60,7 @@ export default {
 
   methods: {
     redirectToRegistration () {
-      this.$router.push('register')
+      // this.$router.push('register')
     }
   }
 }

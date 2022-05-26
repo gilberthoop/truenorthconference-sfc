@@ -125,7 +125,7 @@
           </v-btn>
         </div>
 
-        <div class="login__registration-notice mt-4 text-center d-flex align-center">
+        <!-- <div class="login__registration-notice mt-4 text-center d-flex align-center">
           Haven't registered for TNC 2022?
           <v-btn
             class="login__registration-link text-capitalize px-1"
@@ -135,7 +135,7 @@
             @click="$router.push('register')"
           >Register for free
           </v-btn>
-        </div>
+        </div> -->
       </div>
 
       <div class="login__right-panel">

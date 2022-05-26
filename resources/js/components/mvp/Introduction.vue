@@ -11,7 +11,7 @@
     </div>
 
     <div class="intro__cta d-flex justify-space-between justify-sm-start">
-      <v-btn
+      <!-- <v-btn
         class="intro__cta-register mr-0 mr-sm-8 mr-md-6"
         :width="$vuetify.breakpoint.xsOnly ? '45%' : '123'"
         height="60"
@@ -19,7 +19,7 @@
         @click="$router.push('register')"
       >
         Register
-      </v-btn>
+      </v-btn> -->
       <v-btn
         class="intro__cta-learn"
         outlined

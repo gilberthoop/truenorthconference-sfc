@@ -24,7 +24,7 @@
 
     <FAQ />
 
-    <RegisterNow />
+    <!-- <RegisterNow /> -->
 
     <v-spacer />
 
@@ -41,7 +41,7 @@ import Join from '../components/mvp/Join'
 import Agenda from '../components/mvp/Agenda'
 import FAQ from '../components/mvp/FAQ'
 import Testimony from '../components/mvp/Testimony'
-import RegisterNow from '../components/mvp/RegisterNow'
+// import RegisterNow from '../components/mvp/RegisterNow'
 import Theme from '../components/mvp/Theme'
 import Workshop from '../components/mvp/Workshop'
 
@@ -56,7 +56,7 @@ export default {
     Agenda,
     FAQ,
     Testimony,
-    RegisterNow,
+    // RegisterNow,
     Theme,
     Workshop
   },

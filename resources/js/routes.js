@@ -15,18 +15,18 @@ const routes = [
     component: Home,
     name: 'home'
   },
-  {
-    path: '/register',
-    component: Register,
-    name: 'register',
-    beforeEnter: (to, from, next) => {
-      if (isLoggedIn()) {
-        next('/portal/home')
-      } else {
-        next()
-      }
-    }
-  },
+  // {
+  //   path: '/register',
+  //   component: Register,
+  //   name: 'register',
+  //   beforeEnter: (to, from, next) => {
+  //     if (isLoggedIn()) {
+  //       next('/portal/home')
+  //     } else {
+  //       next()
+  //     }
+  //   }
+  // },
   {
     path: '/login',
     component: Login,
