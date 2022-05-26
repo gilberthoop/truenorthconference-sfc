@@ -3,6 +3,10 @@
     <AppHeader/>
   
     <div class="portal-home mb-12 mx-6 mx-sm-9 mx-md-16">
+      <div class="d-flex justify-center mb-14">
+        <VideoStream />
+      </div>
+
       <div class="portal-home__title">
         Welcome to TNC 2022
       </div>
@@ -83,6 +87,27 @@
                 </div>
               </div>
             </div>
+
+            <div class="portal-home__card-2--title mt-7 mb-6">
+              House Rules
+            </div>
+            <div class="portal-home__card-2--subtitle">
+              <div
+                v-for="(rule, index) in rules"
+                :key="index"
+                class="mt-4 d-flex align-start"
+              >
+                <v-icon
+                  medium
+                  color="#444CE7"
+                >
+                  task_alt
+                </v-icon>
+                <div class="ml-2">
+                  {{ rule }}
+                </div>
+              </div>
+            </div>
           </v-card>
       </div>
 
@@ -104,6 +129,7 @@ import AppHeader from '../../components/header/AppHeader'
 import AppFooter from '../../components/footer/AppFooter'
 import Schedule from './components/Schedule'
 import Ancop from './components/Ancop'
+import VideoStream from './components/VideoStream'
 
 export default {
   name: 'PortalHome',
@@ -112,7 +138,8 @@ export default {
     AppHeader,
     AppFooter,
     Schedule,
-    Ancop
+    Ancop,
+    VideoStream
   },
 
   data () {
@@ -121,10 +148,16 @@ export default {
       eventHeads: '/images/event-heads.png',
       reminders: [
         'Bring a journal, rosary, and a bible.',
-        'Place a crucifix.',
-        'Do no attend while driving.',
-        'Close all other tabs and go on Do Not Disturb.',
+        'Set an altar or focal point',
+        'Find a space where you can be spiritually present.',
+        'Do not attend while driving.',
         'Make a donation to ANCOP Canada. (See details below)'
+      ],
+      rules: [
+        'Stand up and participate in worship and prayers.',
+        'Close all other tabs and go on Do Not Disturb.',
+        'Refrain from using mobile phone.',
+        'Turn on your camera and mute your microphone.',
       ]
     }
   },

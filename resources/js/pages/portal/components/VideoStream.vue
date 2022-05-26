@@ -1,0 +1,45 @@
+<template>
+  <div class="video-stream">
+    <iframe
+      class="video-stream__frame"
+      :src="fridayLink"
+      title="SFC True North Conference"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'VideoStream',
+
+  data () {
+    return {
+      fridayLink: 'https://www.youtube.com/embed/HuUEu0MOVc8',
+      saturdayLink: 'https://www.youtube.com/embed/HGXIApA-xL0'
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.video-stream {
+  &__frame {
+    width: 831px;
+    height: 467px;
+
+    @media only screen and (max-width: 960px) {
+      max-width: 600px;
+      height: 380px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      height: 240px;
+    }
+  }
+}
+</style>
