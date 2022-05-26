@@ -80,14 +80,14 @@
             >
               Log in
             </v-btn>
-            <v-btn
+            <!-- <v-btn
               class="app-bar__buttons--gradient mx-3 text-capitalize"
               width="123"
               height="60"
               @click="onRegisterClick"
             >
               Register
-            </v-btn>
+            </v-btn> -->
           </v-col>
 
           <v-col class="app-bar__buttons d-flex d-md-none justify-end align-center">
@@ -118,14 +118,14 @@
                 Log in
               </v-btn>
             
-              <v-btn
+              <!-- <v-btn
                 class="app-bar__buttons--gradient mx-3 text-capitalize d-none d-sm-block"
                 width="123"
                 height="60"
                 @click="onRegisterClick"
               >
                 Register
-              </v-btn>
+              </v-btn> -->
             </div>
 
             <v-dialog 
@@ -222,14 +222,14 @@
                   >
                     Log in
                   </v-btn>
-                  <v-btn
+                  <!-- <v-btn
                     class="app-bar__buttons--gradient my-3 text-capitalize"
                     max-width="100%"
                     height="60"
                     @click="onRegisterClick"
                   >
                     Register
-                  </v-btn>
+                  </v-btn> -->
                 </div>
               </div>
             </v-dialog>

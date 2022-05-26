@@ -10,14 +10,14 @@
       <div class="panel-left__title mb-8 mr-0 mr-md-16">
         Join SFC's biggest event in Canada
       </div>
-      <v-btn
+      <!-- <v-btn
         class="registration__btn--gradient mx-3 mb-12 mb-md-0 text-capitalize"
         width="auto"
         height="60"
         @click="redirectToRegistration"
       >
         Register for 2022
-      </v-btn>
+      </v-btn> -->
     </div>
     <div class="panel-right d-flex flex-column">
       <v-card
@@ -91,7 +91,7 @@ export default {
 
   methods: {
     redirectToRegistration () {
-      this.$router.push('register')
+      // this.$router.push('register')
     }
   }
 }

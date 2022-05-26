@@ -12,14 +12,14 @@
       <div class="agenda__header-contents mb-5 mb-md-8">
         We have a schedule filled with lots of fun, fellowship, and moments to grow in your faith.
       </div>
-      <v-btn
+      <!-- <v-btn
         class="registration__btn--gradient text-capitalize"
         width="auto"
         height="60"
         @click="redirectToRegistration"
       >
         Register for 2022
-      </v-btn>
+      </v-btn> -->
     </div>
   
     <div class="d-flex flex-column">
@@ -110,7 +110,7 @@ export default {
 
   methods: {
     redirectToRegistration () {
-      this.$router.push('register')
+      // this.$router.push('register')
     }
   }
 }
