@@ -1,5 +1,5 @@
 <template>
-  <div class="video-stream">
+  <div class="video-streams">
     <iframe
       class="video-stream__frame"
       :src="saturdayLink"
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.video-stream {
+.video-streams {
   &__frame {
     width: 831px;
     height: 467px;
