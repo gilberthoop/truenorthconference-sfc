@@ -1,7 +1,7 @@
 <template>
   <div class="video-streams">
     <iframe
-      class="video-stream__frame"
+      class="video-streams__frame"
       :src="saturdayLink"
       title="SFC True North Conference"
       frameborder="0"
