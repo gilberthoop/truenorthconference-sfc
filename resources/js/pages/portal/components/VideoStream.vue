@@ -1,12 +1,12 @@
 <template>
   <div class="video-streams">
     <iframe
-      class="video-streams__frame"
-      :src="saturdayLink"
-      title="SFC True North Conference"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
+     class="video-streams__frame"
+     src="https://www.youtube.com/embed/HGXIApA-xL0"
+     title="YouTube video player"
+     frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+     allowfullscreen
     >
     </iframe>
   </div>
@@ -18,7 +18,6 @@ export default {
 
   data () {
     return {
-      fridayLink: 'https://www.youtube.com/embed/HuUEu0MOVc8',
       saturdayLink: 'https://www.youtube.com/embed/HGXIApA-xL0'
     }
   }
