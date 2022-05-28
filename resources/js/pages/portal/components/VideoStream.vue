@@ -2,7 +2,7 @@
   <div class="video-stream">
     <iframe
       class="video-stream__frame"
-      :src="fridayLink"
+      :src="saturdayLink"
       title="SFC True North Conference"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
