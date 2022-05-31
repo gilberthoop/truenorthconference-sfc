@@ -3,10 +3,6 @@
     <AppHeader/>
   
     <div class="portal-home mb-12 mx-6 mx-sm-9 mx-md-16">
-      <div class="d-flex justify-center mb-14">
-        <MyVideoStream />
-      </div>
-
       <div class="portal-home__title">
         Welcome to TNC 2022
       </div>
@@ -129,8 +125,6 @@ import AppHeader from '../../components/header/AppHeader'
 import AppFooter from '../../components/footer/AppFooter'
 import Schedule from './components/Schedule'
 import Ancop from './components/Ancop'
-import VideoStream from './components/VideoStream'
-import MyVideoStream from './components/VideoStream'
 
 export default {
   name: 'PortalHome',
@@ -139,9 +133,7 @@ export default {
     AppHeader,
     AppFooter,
     Schedule,
-    Ancop,
-    VideoStream,
-    MyVideoStream
+    Ancop
   },
 
   data () {
