@@ -34,20 +34,40 @@
         </v-card>
 
         <v-card
-          class="workshops__card-2 pa-8 mt-6 ml-md-3"
-          color="#fff"
+          class="workshops__card-2 pa-6 mt-6 ml-md-3"
+          color="#F2F4F7"
           elevation="0"
           height="100%"
           max-width="100%"
         >
-          <div class="workshops__card-2--title mb-6">
+          <div class="workshops__card-2--title mb-4">
+            Key reminders
+          </div>
+          <div class="workshops__card-2--subtitle">
+            Workshops are happening on Wednesday, June 1, 2022.
           </div>
         </v-card>
       </div>
 
       <div class="workshops__content mt-14">
-        <div class="workshops__content--title text-left text-md-center">
-          This year's workshops
+        <div class="text-left text-md-center mb-16 py-8">
+          <div class="workshops__content--title">
+            This year's workshops
+          </div>
+          <div class="workshops__content--subtitle mx-auto my-5">
+            This year, we’re privileged to have a 6 workshops.
+            When it’s time to attend, please join the Zoom meeting.
+            Upon logging in, please change your Zoom name with the workshop you want to attend.
+          </div>
+          <v-btn
+            class="workshops__content--link"
+            max-width="200"
+            height="50px"
+            color="#444CE7"
+            @click="openWorkshopOnZoom"
+          >
+            Join Zoom Meeting
+          </v-btn>
         </div>
 
         <div class="workshops__grid mt-9">
@@ -114,7 +134,7 @@ export default {
         {
           theme: 'Character',
           title: 'High Definition Faith',
-          description: 'In this session, participants will unpack the character of resilience, and how it is plays an important role in facing challenges and obstacles in life. They will explore ways to arrive at triumph while in difficult situations and in life’s many heartbreaks'
+          description: 'In this session, participants will unpack the character of resilience, and how it is plays an important role in facing challenges and obstacles in life. They will explore ways to arrive at triumph while in difficult situations and in life’s many heartbreaks.'
         },
         {
           theme: 'Media Literacy',
@@ -127,6 +147,13 @@ export default {
           description: 'This session will unpack the basics of inner healing through the lens of Theology of the Body. Participants will be given tools and advice on how to bring forth healing of wounds from past hurts, and to help them move forward, find wholeness, and live fully.'
         }
       ]
+    }
+  },
+
+  methods: {
+    openWorkshopOnZoom () {
+      const workshopZoomLink = "https://us06web.zoom.us/j/84188878643?pwd=MEp1YW9tdmNzNG1oMnZXV1pZam9LZz09"
+      window.open(workshopZoomLink, '_blank')
     }
   }
 }
@@ -188,11 +215,32 @@ export default {
       font-size: 48px;
       font-weight: 700;
       line-height: 60px;
+      margin-bottom: 16px;
 
       @media only screen and (max-width: 600px) {
         font-size: 30px;
         line-height: 38px;
       }
+    }
+
+    &--subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 30px;
+      max-width: 728px;
+
+      @media only scree and (max-width: 960px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    &--link {
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: capitalize;
+      color: #fff;
     }
   }
 
