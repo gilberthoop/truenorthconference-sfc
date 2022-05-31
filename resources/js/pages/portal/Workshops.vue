@@ -55,7 +55,7 @@
             This year's workshops
           </div>
           <div class="workshops__content--subtitle mx-auto my-5">
-            This year, we’re privileged to have a 6 workshops.
+            This year, we’re privileged to have 6 workshops.
             When it’s time to attend, please join the Zoom meeting.
             Upon logging in, please change your Zoom name with the workshop you want to attend.
           </div>
