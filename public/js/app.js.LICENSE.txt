@@ -10,6 +10,12 @@
  * Copyright 2022 Fonticons, Inc.
  */
 
+/*!
+ * Vue.js v2.6.14
+ * (c) 2014-2021 Evan You
+ * Released under the MIT License.
+ */
+
 /**
   * vee-validate v2.2.15
   * (c) 2019 Abdelrahman Awad
