@@ -51,10 +51,15 @@
                 <v-radio
                   class="gathering__option px-5"
                   :value="option"
+                  color="#2D31A6"
                 >
                   <template v-slot:label>
                     <v-card-text class="pr-0 pl-2">
-                      <span>{{ option }}</span>
+                      <span
+                        :class="{'selected-title': option === inPerson}"
+                      >
+                        {{ option }}
+                      </span>
                     </v-card-text>
                   </template>
                 </v-radio>
@@ -85,7 +90,7 @@
                 class="gathering"
                 outlined
                 height="auto"
-                :class="{'selected': option === workshop}"
+                :class="{'selected': option.title === workshop}"
               >
                 <v-radio
                   class="gathering__option px-5"
@@ -95,13 +100,13 @@
                   <template v-slot:label>
                     <v-card-text class="pr-0 pl-2">
                       <span
-                        :class="{'selected-title': option === workshop}"
+                        :class="{'selected-title': option.title === workshop}"
                       >
                         {{ option.title }}
                       </span>
                       <br/>
                       <span
-                        :class="{'selected-theme': option === workshop}"
+                        :class="{'selected-theme': option.title === workshop}"
                       >
                         {{ option.theme }}
                       </span>
@@ -116,6 +121,7 @@
         <AppFlowNavButtons
           :show-back="true"
           :continue-text="$vuetify.breakpoint.xsOnly ? 'Register' : 'Complete my registration'"
+          :loading="loading"
           @back="handleBack"
           @continue="handleContinue"
         />
@@ -174,12 +180,14 @@ export default {
     }
   },
 
-  computed: {
+  mounted () {
+    window.scrollTo(0, 0)
   },
 
   methods: {
     handleBack () {
       this.step--
+      window.scrollTo(0, 0)
     },
 
     handleContinue () {

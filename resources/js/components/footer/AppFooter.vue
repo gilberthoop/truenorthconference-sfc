@@ -69,7 +69,7 @@ export default {
 <style scoped lang="scss">
 .footer {
   font-family: "Outfit", sans-serif;
-  color: #fff;
+  color: #fff !important;
   background-color: #2D31A6 !important;
   padding-left: 30px;
   padding-right: 30px;
@@ -80,7 +80,7 @@ export default {
   }
 
   &__card {
-    color: #fff;
+    color: #fff !important;
   }
 
   &__link {

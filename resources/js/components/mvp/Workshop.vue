@@ -74,7 +74,7 @@ export default {
         {
           category: 'Deepening Prayer Life',
           title: 'Avoiding Dead Air',
-          description: 'In this session, participants will be invited to take stock of the quality of their prayer life. They will be explore ways to recognize and overcome spiritual dryness, and to deepen their personal relationship with God.'
+          description: 'In this session, participants will be invited to take stock of the quality of their prayer life. They will explore ways to recognize and overcome spiritual dryness, and to deepen their personal relationship with God.'
         },
         {
           category: 'Conflict Resolution',

@@ -46,14 +46,57 @@
               </v-text-field>
             </ValidationProvider>
 
+            <div class="d-flex justify-space-between align-center forgot-password-dialog">
+                <div>Password</div>
+                <v-dialog
+                  v-model="dialog"
+                  transition="scroll-y-transition"
+                  hide-overlay
+                  max-width="600"
+                  :retain-focus="false"
+                >
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      class="login__forgot-password-link text-capitalize"
+                      width="auto"
+                      height="100%"
+                      color="#fff"
+                      elevation="0"
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      Forgot Password
+                    </v-btn>
+                  </template>
+
+                  <v-card
+                    class="login__registration-notice pa-5 text-center"
+                    max-width="100%"
+                    max-height="100%"
+                    color="#F5F8FF"
+                    elevation="0"
+                  >
+                    Please send a password reset request to cfcsfctnc@gmail.com.
+
+                    <div class="mt-3 text-center">
+                      <v-btn
+                        class="login__registration-link text-capitalize px-1"
+                        elevation="0"
+                        color="#F5F8FF"
+                        width="auto"
+                        @click.native="dialog=false"
+                      >
+                        Okay
+                      </v-btn>
+                    </div>
+                  </v-card>
+                </v-dialog>
+                </div>
+
             <ValidationProvider
               v-slot="{ errors }"
               :rules="passwordInputRules"
             >
-              <div class="d-flex justify-space-between">
-                <div>Password</div>
-                <a href="#" class="login__forgot-password-link">Forgot Password</a>
-              </div>
               <v-text-field
                 v-model="password"
                 type="password"
@@ -76,16 +119,23 @@
             width="366px"
             depressed
             :loading="loading"
-            @click.prevent="logIn"
+            @click.prevent="logInUser"
           >
             Sign in
           </v-btn>
         </div>
 
-        <div class="mt-4 text-center">
+        <!-- <div class="login__registration-notice mt-4 text-center d-flex align-center">
           Haven't registered for TNC 2022?
-          <a href="#" class="login__registration-link">Register for free</a>
-        </div>
+          <v-btn
+            class="login__registration-link text-capitalize px-1"
+            elevation="0"
+            color="#fff"
+            width="auto"
+            @click="$router.push('register')"
+          >Register for free
+          </v-btn>
+        </div> -->
       </div>
 
       <div class="login__right-panel">
@@ -121,11 +171,8 @@ export default {
     return {
       emailFieldFocused: false,
       passwordFieldFocused: false,
+      dialog: false
     }
-  },
-
-  mounted () {
-    window.scrollTo(0 ,0)
   },
 
   computed: {
@@ -135,6 +182,20 @@ export default {
 
     passwordInputRules () {
       return this.passwordFieldFocused ? '' : 'required|max:40|min:8'
+    }
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
+  },
+
+  methods: {
+    async logInUser () {
+      this.errorMessage = ''
+      const validInputs = await this.$refs.observer.validate(); 
+      if (!validInputs) return
+
+      this.logIn()
     }
   }
 }
@@ -226,11 +287,21 @@ export default {
     }
   }
 
-  &__registration-link,
-  &__forgot-password-link {
+  &__registration-link {
+    font-family: "Outfit", sans-serif !important;
     color: #3538CD;
-    text-decoration: none;
+    text-decoration: none !important;
+  }
 
+  &__forgot-password-link {
+    font-family: "Outfit", sans-serif !important;
+    color: #3538CD;
+    text-decoration: none !important;
+    font-size: 18px;
+  }
+
+  &__registration-notice {
+    font-family: "Outfit", sans-serif !important;
   }
 
   &__error-message {
@@ -245,5 +316,8 @@ export default {
   top: 40px;
   left: 40px;
   cursor: pointer;
+}
+
+.forgot-password-dialog {
 }
 </style>

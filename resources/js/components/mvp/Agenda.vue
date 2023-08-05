@@ -12,53 +12,17 @@
       <div class="agenda__header-contents mb-5 mb-md-8">
         We have a schedule filled with lots of fun, fellowship, and moments to grow in your faith.
       </div>
-      <v-btn
+      <!-- <v-btn
         class="registration__btn--gradient text-capitalize"
         width="auto"
         height="60"
         @click="redirectToRegistration"
       >
         Register for 2022
-      </v-btn>
+      </v-btn> -->
     </div>
   
     <div class="d-flex flex-column">
-      <div class="d-flex flex-column flex-md-row justify-space-between">
-        <v-card
-          class="agenda__card pa-5 mt-9 mr-0 mr-md-4"
-          color="#1D2939"
-          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-        >
-          <div class="agenda__card-date">
-            Saturday, May 21, 2022
-          </div>
-          <div class="agenda__card-title font-weight-medium">
-            Workshops
-          </div>
-          <div class="agenda__card-description mb-2">
-            Engaging and authentic conversations featuring eleven workshop presenters.
-          </div>
-        </v-card>
-
-        <v-card
-          class="agenda__card pa-5 mt-9 ml-0 ml-md-4"
-          color="#1D2939"
-          :width="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-          :height="$vuetify.breakpoint.smAndDown ? '100%' : 'auto'"
-        >
-          <div class="agenda__card-date">
-            Wednesday, May 25, 2022
-          </div>
-          <div class="agenda__card-title font-weight-medium">
-            Competitions
-          </div>
-          <div class="agenda__card-description mb-2">
-            Participate with your friends in various creative, sports, and fun competitions.
-          </div>
-        </v-card>
-      </div>
-
       <v-card
         class="agenda__card pa-5 mt-9"
         color="#1D2939"
@@ -66,7 +30,7 @@
         height="100%"
       >
         <div class="agenda__card-date">
-          Saturday, May 28 - May 29, 2022
+          Friday, May 27 - Saturday, May 28, 2022
         </div>
         <div class="agenda__card-title font-weight-medium">
           Main Conference
@@ -75,19 +39,49 @@
           2-day online stream featuring our key note speakers, praise and worship and more.
         </div>
       </v-card>
+
+      <div class="d-flex flex-column flex-md-row justify-space-between">
+        <v-card
+          class="agenda__card pa-5 mt-9 mr-md-4"
+          color="#1D2939"
+          width="100%"
+          height="100%"
+        >
+          <div class="agenda__card-date">
+            Wednesday, June 1, 2022 @ 8PM EDT
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Workshops
+          </div>
+          <div class="agenda__card-description mb-2">
+            Engaging & authentic conversations featuring eleven workshop presenters.
+          </div>
+        </v-card>
+
+        <v-card
+          class="agenda__card pa-5 mt-9 ml-md-4"
+          color="#1D2939"
+          width="100%"
+          height="100%"
+        >
+          <div class="agenda__card-date">
+            Saturday, July 9, 2022
+          </div>
+          <div class="agenda__card-title font-weight-medium">
+            Competitions
+          </div>
+          <div class="agenda__card-description mb-2">
+            Participate in the various creative and fun competitions! Competition guidelines will be released in June 2022.
+          </div>
+        </v-card>
+      </div>
     </div>
 </div>
 </template>
 
 <script>
-import Marquee from '../../components/animation/Marquee'
-
 export default {
   name: 'Agenda',
-
-  components: {
-    Marquee
-  },
 
   data () {
     return {
@@ -96,32 +90,27 @@ export default {
           day: 'Saturday,',
           date: 'May 21, 2022',
           title: 'Workshops',
-          image: '/images/agenda/workshop.png',
           description: 'Engaging & authentic conversations featuring eleven workshop presenters.'
         },
         {
           day: 'Wednesday,',
           date: 'May 25, 2022',
           title: 'Competitions',
-          image: '/images/agenda/competitions.png',
           description: 'Participate with your friends in various creative, sports, and fun competitions.'
         },
         {
-          day: 'Saturday,',
-          date: 'May 28 - May 29, 2022',
+          day: 'Friday,',
+          date: 'May 27 - Saturday, May 28, 2022',
           title: 'Main Conference',
-          image: '/images/agenda/conference.png',
           description: ' 2-day online stream featuring our key note speakers, praise and worship and more.'
         }
-      ],
-      lineImgSrc: '/images/banner/line-1.png',
-      tncBannerImgSrc: '/images/banner/content.png'
+      ]
     }
   },
 
   methods: {
     redirectToRegistration () {
-      this.$router.push('register')
+      // this.$router.push('register')
     }
   }
 }

@@ -3,7 +3,7 @@ import { logIn } from '../utils/auth'
 export default {
   data () {
     return {
-      bgImgSrc: '/images/registration.png',
+      bgImgSrc: '/images/registration.webp',
       loading: false,
       errorMessage: ''
     }
@@ -28,6 +28,24 @@ export default {
       }
     },
 
+    firstName: {
+      get () {
+        return this.$store.state.firstName
+      },
+      set (value) {
+        return this.$store.commit('setFirstName', value)
+      }
+    },
+
+    lastName: {
+      get () {
+        return this.$store.state.lastName
+      },
+      set (value) {
+        return this.$store.commit('setLastName', value)
+      }
+    },
+
     email: {
       get () {
         return this.$store.state.email
@@ -46,11 +64,21 @@ export default {
       }
     },
 
+    confirmation: {
+      get () {
+        return this.$store.state.confirmation
+      },
+      set (value) {
+        return this.$store.commit('setConfirmation', value)
+      }
+    },
+
     region: {
       get () {
         return this.$store.state.region
       },
       set (value) {
+        this.area = null
         return this.$store.commit('setRegion', value)
       }
     },
@@ -80,30 +108,43 @@ export default {
       set (value) {
         return this.$store.commit('setWorkshop', value)
       }
+    },
+
+    loggedIn () {
+      return this.$store.state.loggedIn
+    },
+
+    user () {
+      return this.$store.state.user
     }
   },
 
-  mounted () {
-    window.scrollTo(0, 0)
-  },
-
   methods: {
-    async logIn () {
-      this.errorMessage = ''
-      const validInputs = await this.$refs.observer.validate(); 
-      if (!validInputs) return
+    async logOut () {
+      await axios.post('/logout')
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
+    },
 
+    async logIn () {
       try {
         this.loading = true
-        await axios.get('/sanctum/csrf-cookie')
-        await axios.post('/login', {
-          email: this.email,
-          password: this.password
-        })
+        // await axios.get('/sanctum/csrf-cookie')
+        // await axios.post('/login', {
+        //   email: this.email,
+        //   password: this.password
+        // })
 
+        // Set user login status on
+        // logIn()
+        // this.$store.dispatch('loadUser')
+
+        // temporarily log in any user
         logIn()
-        this.$store.dispatch('loadUser')
-        this.$router.push('/')
+        this.$store.commit('setLoggedIn', true)
+
+        // Redirect to portal page
+        this.redirectToHomePortal()
       } catch (error) {
         if (error.response?.data?.message) {
           this.errorMessage = 'Sign in failed. Please check your email and password.'
@@ -129,16 +170,10 @@ export default {
       try {
         this.loading = true
         const response = await axios.post('/register', user)
-        
-        //TODO
-        if (response.status === 200) {
-          // Log participant in
-          login()
-          // Load participant information
-          this.$store.dispatch('loadUser')
-          // Redirect to home page
-          this.$router.push('/')
-        }
+        this.step = 0
+
+        // Log in user
+        this.logIn()
       } catch (error) {
         this.errorMessage = error.response.data.message
       }
@@ -150,23 +185,8 @@ export default {
       this.$router.push('/')
     },
 
-    fetchAreas (region) {
-      switch (region) {
-        case 'Atlantic (QC, NB, NL, NS, PEI)':
-          return this.areaList[0]
-        case 'Capital (ON)':
-          return this.areaList[1]
-        case 'Central (MB, SK, NU)':
-          return this.areaList[2]
-        case 'Mountain (AB, NWT)':
-          return this.areaList[3]
-        case 'Pacific (BC, YT)':
-          return this.areaList[4]
-        case 'Pacific (BC, YT)':
-          return this.areaList[5]
-        default:
-          return 'Please select your region above'
-      }
+    redirectToHomePortal () {
+      this.$router.push('/portal/home')
     }
   }
 }

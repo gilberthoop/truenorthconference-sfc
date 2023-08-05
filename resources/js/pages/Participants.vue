@@ -1,9 +1,33 @@
 <template>
   <div class="participants-table pa-7 pa-sm-12">
     <div class="participants-table__title">SFC True North Conference Participants</div>
+
+  <div class="d-flex justify-space-around flex-column flex-sm-row align-center">
+    <div class="my-3">
+      <download-excel
+        :data="participants"
+        type="csv"
+      >
+        <v-btn class="participants-table__download-btn">
+          Download as CSV
+        </v-btn>
+      </download-excel>
+    </div>
+
+    <div class="my-3">
+      <download-excel
+        :data="participants"
+      >
+        <v-btn class="participants-table__download-btn">
+          Download as XLS
+        </v-btn>
+      </download-excel>
+    </div>
+  </div>
+
     <v-text-field
       v-model="search"
-      label="Search a name (case-sensitive)"
+      label="Search a name"
       class="mx-auto mx-sm-10"
       color="#fff"
     />
@@ -12,11 +36,9 @@
       :items="participants"
       :items-per-page="10"
       :search="search"
-      :custom-filter="filterName"
       :loading="loading"
       loading-text="Loading information..."
       class="participants-table__data elevation-1"
-      dark
     />
   </div>
 </template>
@@ -87,14 +109,6 @@ export default {
       }
 
       this.loading = false
-    },
-
-    filterName (value, search, item) {
-      console.log('filterName')
-      return value != null &&
-          search != null &&
-          typeof value === 'string' &&
-          value.toString().indexOf(search) !== -1
     }
   }
 }
@@ -115,9 +129,28 @@ export default {
       font-size: 36px;
     }
   }
+
+  &__download-btn {
+    margin: auto;
+    text-transform: none;
+    font-size: 16px;
+  }
 }
 
 ::v-deep .theme--light.v-label {
+  color: #fff;
+}
+
+::v-deep .theme--light.v-data-table {
+  background-color: #EEF4FF;
+}
+
+::v-deep .theme--light.v-data-table > .v-data-table__wrapper > table > thead > tr > th,
+::v-deep .theme--light.v-data-table .v-data-table__empty-wrapper {
+  color: #444CE7;
+}
+
+::v-deep .theme--light.v-input input {
   color: #fff;
 }
 </style>

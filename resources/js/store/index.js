@@ -4,20 +4,25 @@ import { isLoggedIn, logOut } from '../utils/auth';
 
 Vue.use(Vuex)
 
+const defaultStoreState = {
+  step: 1,
+  firstName: null,
+  lastName: null,
+  name: null,
+  email: null,
+  password: null,
+  confirmation: null,
+  region: null,
+  area: null,
+  inPerson: null,
+  workshop: null,
+  loggedIn: false,
+  user: null
+}
+
 const store = new Vuex.Store({
   state () {
-    return {
-      step: 1,
-      name: null,
-      email: null,
-      password: null,
-      region: null,
-      area: null,
-      inPerson: null,
-      workshop: null,
-      loggedIn: false,
-      user: null
-    }
+    return defaultStoreState
   },
 
   mutations: {
@@ -29,12 +34,24 @@ const store = new Vuex.Store({
       state.name = value
     },
 
+    setFirstName (state, value) {
+      state.firstName = value
+    },
+
+    setLastName (state, value) {
+      state.lastName = value
+    },
+
     setEmail (state, value) {
       state.email = value
     },
 
     setPassword (state, value) {
       state.password = value
+    },
+
+    setConfirmation (state, value) {
+      state.confirmation = value
     },
 
     setRegion (state, value) {
@@ -59,6 +76,10 @@ const store = new Vuex.Store({
 
     setUser (state, value) {
       state.user = value
+    },
+
+    resetAll (state) {
+      Object.assign(state, defaultStoreState)
     }
   },
 
@@ -70,16 +91,18 @@ const store = new Vuex.Store({
           const user = (await axios.get("/user")).data
           commit('setUser', user)
           commit('setLoggedIn', true)
-        } catch (error) {
-          console.log(error)
-          dispatch('logout')
+        } catch {
+          dispatch('logoutUser')
         }
       }
     },
 
-    logout({ commit }) {
-      commit('setUser', {})
+    logoutUser ({ commit }) {
+      commit('setEmail', null)
+      commit('setPassword', null)
+      commit('setUser', null)
       commit('setLoggedIn', false)
+      localStorage.clear()
       logOut()
     }
   }

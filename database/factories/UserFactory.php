@@ -20,10 +20,11 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
+            'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'region' => $this->faker->state(),
             'area' => $this->faker->city(),
-            'in_person' => $this->faker->boolean(),
+            'in_person' => $this->faker->name(),
             'workshop' => $this->faker->company()
         ];
     }

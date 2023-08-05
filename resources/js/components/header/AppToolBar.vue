@@ -33,17 +33,39 @@
   
           <v-col class="d-flex justify-start justify-md-center">
             <v-img
+              class="app-bar__logo"
               :src="logoSrc"
               max-width="123"
               max-height="50"
+              @click="redirectToHomePortal"
             />
           </v-col>
 
           <v-col
             v-if="loggedIn"
-            class="app-bar__buttons user d-none d-md-flex justify-end"
+            class="app-bar__buttons user d-none d-md-flex justify-end align-center"
           >
-            Hello, {{ name }}
+            <div>
+              <v-btn
+                class="portal-btn mx-3 text-capitalize"
+                width="auto"
+                height="50"
+                @click="redirectToHomePortal"
+              >
+                Back to Portal
+              </v-btn>
+            </div>
+            <div class="ml-5">
+              <v-btn
+                class="logout-btn mx-3 text-capitalize"
+                color="#EEF4FF"
+                width="auto"
+                height="50"
+                @click="logOut"
+              >
+                Log out
+              </v-btn>
+            </div>
           </v-col>
           <v-col
             v-else
@@ -58,14 +80,14 @@
             >
               Log in
             </v-btn>
-            <v-btn
+            <!-- <v-btn
               class="app-bar__buttons--gradient mx-3 text-capitalize"
               width="123"
               height="60"
               @click="onRegisterClick"
             >
               Register
-            </v-btn>
+            </v-btn> -->
           </v-col>
 
           <v-col class="app-bar__buttons d-flex d-md-none justify-end align-center">
@@ -73,9 +95,19 @@
               v-if="loggedIn"
               class="user d-none d-sm-block"
             >
-              Hello, {{ name }}
+              <v-btn
+                class="portal-btn mx-3 text-capitalize"
+                width="auto"
+                height="50"
+                @click="redirectToHomePortal"
+              >
+                Back to Portal
+              </v-btn>
             </div>
-            <div v-else>
+            <div
+              class="d-flex"
+              v-else
+            >
               <v-btn
                 class="mx-3 text-capitalize d-none d-sm-block"
                 color="#EEF4FF"
@@ -86,15 +118,15 @@
                 Log in
               </v-btn>
             
-              <v-btn
+              <!-- <v-btn
                 class="app-bar__buttons--gradient mx-3 text-capitalize d-none d-sm-block"
                 width="123"
                 height="60"
                 @click="onRegisterClick"
               >
                 Register
-              </v-btn>
-              </div>
+              </v-btn> -->
+            </div>
 
             <v-dialog 
               v-model="dialog"
@@ -145,13 +177,40 @@
                   </a>
                 </v-list-item>
               </v-list>
+
+              <v-btn
+                v-if="loggedIn && $vuetify.breakpoint.smOnly"
+                class="logout-btn mx-10 text-capitalize"
+                color="#EEF4FF"
+                width="auto"
+                height="120"
+                @click="logOut"
+              >
+                Log out
+              </v-btn>
               
               <div class="app-bar__buttons--mobile d-flex d-sm-none flex-column px-4">
                 <div
                   v-if="loggedIn"
-                  class="user"
+                  class="user d-flex flex-column"
                 >
-                  Hello, {{ name }}
+                  <v-btn
+                    class="portal-btn text-capitalize"
+                    width="auto"
+                    height="50"
+                    @click="redirectToHomePortal"
+                  >
+                    Back to Portal
+                  </v-btn>
+                  <v-btn
+                    class="logout-btn mt-5 text-capitalize"
+                    color="#EEF4FF"
+                    width="auto"
+                    height="45"
+                    @click="logOut"
+                  >
+                    Log out
+                  </v-btn>
                 </div>
                 <div v-else>
                   <v-btn
@@ -163,14 +222,14 @@
                   >
                     Log in
                   </v-btn>
-                  <v-btn
+                  <!-- <v-btn
                     class="app-bar__buttons--gradient my-3 text-capitalize"
                     max-width="100%"
                     height="60"
                     @click="onRegisterClick"
                   >
                     Register
-                  </v-btn>
+                  </v-btn> -->
                 </div>
               </div>
             </v-dialog>
@@ -181,8 +240,12 @@
 </template>
 
 <script>
+import AuthMixin from '../../mixins/auth-mixin'
+
 export default {
   name: 'AppToolBar',
+
+  mixins: [AuthMixin],
 
   data () {
     return {
@@ -205,24 +268,6 @@ export default {
     onLogInClick () {
       this.$router.push('login')
     }
-  },
-
-  computed: {
-    user () {
-      return this.$store.state.user
-    },
-
-    name () {
-      return this.user.name
-    },
-
-    email () {
-      return this.user.email
-    },
-
-    loggedIn () {
-      return this.$store.state.loggedIn
-    }
   }
 }
 </script>
@@ -232,6 +277,10 @@ export default {
   font-size: 18px !important;
   font-family: "Outfit", sans-serif !important;
   backdrop-filter: blur(10px);
+
+  &__logo {
+    cursor: pointer;
+  }
 
   &__links-list {
     background-color: #2D3282 !important;
@@ -266,7 +315,11 @@ export default {
 }
 
 .user {
-  color: #fff;
+  color: #fff !important;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 24px !important;
+  }
 }
 
 ::v-deep .v-dialog--fullscreen {
@@ -286,4 +339,28 @@ export default {
 ::v-deep .v-btn {
   border-radius: 8px;
 }
+
+.logout-btn {
+  color: #3538CD !important;
+  
+  @media only screen and (min-width: 600px) and (max-width: 960px) {
+    font-size: 72px !important;
+    position: absolute;
+    bottom: 130px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 30px !important;
+  }
+}
+
+.portal-btn {
+  color: #fff !important;
+  background: linear-gradient(90deg, #444CE7 0%, #9E77ED 100%);
+
+  @media only screen and (max-width: 600px) {
+    font-size: 30px !important;
+  }
+}
+
 </style>

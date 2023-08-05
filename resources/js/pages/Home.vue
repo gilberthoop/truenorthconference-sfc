@@ -7,9 +7,6 @@
         v-if="!noToolBarMenu"
         />
       </div>
-      <Banner
-        v-if="!noToolBarMenu"
-      />
     </div>
 
     <!-- MVP sections -->
@@ -27,7 +24,7 @@
 
     <FAQ />
 
-    <RegisterNow />
+    <!-- <RegisterNow /> -->
 
     <v-spacer />
 
@@ -37,7 +34,6 @@
 </template>
 
 <script>
-import Banner from '../components/header/Banner'
 import AppToolBar from '../components/header/AppToolBar'
 import AppFooter from '../components/footer/AppFooter'
 import Introduction from '../components/mvp/Introduction'
@@ -45,7 +41,7 @@ import Join from '../components/mvp/Join'
 import Agenda from '../components/mvp/Agenda'
 import FAQ from '../components/mvp/FAQ'
 import Testimony from '../components/mvp/Testimony'
-import RegisterNow from '../components/mvp/RegisterNow'
+// import RegisterNow from '../components/mvp/RegisterNow'
 import Theme from '../components/mvp/Theme'
 import Workshop from '../components/mvp/Workshop'
 
@@ -53,7 +49,6 @@ export default {
   name: 'Home',
 
   components: {
-    Banner,
     AppToolBar,
     AppFooter,
     Introduction,
@@ -61,7 +56,7 @@ export default {
     Agenda,
     FAQ,
     Testimony,
-    RegisterNow,
+    // RegisterNow,
     Theme,
     Workshop
   },
@@ -70,6 +65,10 @@ export default {
     noToolBarMenu () {
       return this.$route.name === 'register' || this.$route.name === 'login' || this.$route.name === 'participants'
     },
+  },
+
+  mounted () {
+    window.scrollTo(0, 0)
   }
 }
 </script>

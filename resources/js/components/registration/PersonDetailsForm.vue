@@ -29,15 +29,35 @@
             v-slot="{ errors }"
             :rules="nameInputRules"
           >
-            <div>Name*</div>
+            <div>First Name*</div>
             <v-text-field
-              v-model="name"
+              v-model="firstName"
               type="text"
-              placeholder="Enter your name"
+              placeholder="Enter your first name"
               outlined
               dense
               color="#344054"
-              hint="Must be a full name with at least 3 letters"
+              hint="Must be a first name with at least 2 letters"
+              :error-messages="errors && errors.length > 0 ? 'Please enter a valid name' : ''"
+              class="registration__form--greyed my-1"
+              @focus="nameFieldFocused = true"
+              @blur="nameFieldFocused = false"
+            />
+          </ValidationProvider>
+
+          <ValidationProvider
+            v-slot="{ errors }"
+            :rules="nameInputRules"
+          >
+            <div>Last Name*</div>
+            <v-text-field
+              v-model="lastName"
+              type="text"
+              placeholder="Enter your last name"
+              outlined
+              dense
+              color="#344054"
+              hint="Must be a full name with at least 2 letters"
               :error-messages="errors && errors.length > 0 ? 'Please enter a valid name' : ''"
               class="registration__form--greyed my-1"
               @focus="nameFieldFocused = true"
@@ -68,6 +88,7 @@
           <ValidationProvider
             v-slot="{ errors }"
             :rules="passwordInputRules"
+            vid="password"
           >
             <div>Password*</div>
             <v-text-field
@@ -86,10 +107,28 @@
           </ValidationProvider>
 
           <ValidationProvider
+              v-slot="{ errors }"
+              rules="required|confirmed:password"
+              data-vv-as="password"
+            >
+              <div>Confirm Password*</div>
+              <v-text-field
+                v-model="confirmation"
+                type="password"
+                placeholder="Confirm password"
+                outlined
+                dense
+                color="#344054"
+                :error-messages="errors && errors.length > 0 ? 'The passwords do not match' : ''"
+                class="login__form--greyed my-1"
+              />
+            </ValidationProvider>
+
+          <ValidationProvider
             v-slot="{ errors }"
             :rules="regionInputRules"
           >
-            <div>Region*</div>
+            <div>Which region are you from?*</div>
             <v-select
               ref="region"
               v-model="region"
@@ -106,20 +145,36 @@
           </ValidationProvider>
 
           <ValidationProvider
+            v-if="region"
             v-slot="{ errors }"
             rules="required|max:40|min:3"
           >
-            <div>Area</div>
-            <v-select
-              ref="area"
-              v-model="area"
-              :items="region ? fetchAreas(region) : []"
-              placeholder="Choose your area"
-              outlined
-              dense
-              color="#344054"
-              :error-messages="errors && errors.length > 0 ? 'Please select your area' : ''"
-            />
+            <div
+              v-if="region !== 'International' && region !== 'Other' && region !== 'SFC+'"
+            >
+              <div>Which area are you from?*</div>
+              <v-select
+                v-model="area"
+                :items="region ? fetchAreas(region) : []"
+                placeholder="Choose your area"
+                outlined
+                dense
+                color="#344054"
+                :error-messages="errors && errors.length > 0 ? 'Please select your area' : ''"
+              />
+            </div>
+
+            <div v-else>
+              <div>Which city are you from?*</div>
+              <v-text-field
+                v-model="area"
+                placeholder="Enter your city"
+                outlined
+                dense
+                color="#344054"
+                class="registration__form--greyed my-1"
+              />
+            </div>
           </ValidationProvider>
         </ValidationObserver>
 
@@ -129,9 +184,17 @@
         />
       </div>
 
-      <div class="mt-4 text-center">
+      <div class="mt-4 text-center d-flex align-center">
         Already registered for TNC 2022?
-        <a href="#" class="registration__login-link">Log in</a>
+        <v-btn
+          class="registration__login-link text-capitalize px-0"
+          elevation="0"
+          color="#fff"
+          width="auto"
+          @click="$router.push('login')"
+        >
+          Log in
+        </v-btn>
       </div>
     </div>
 
@@ -172,12 +235,14 @@ export default {
       passwordFieldFocused: false,
       regionFieldFocused: false,
       regions: [
-        'Atlantic (QC, NB, NL, NS, PEI)',
-        'Capital (ON)',
-        'Central (MB, SK, NU)',
-        'Mountain (AB, NWT)',
-        'Pacific (BC, YT)',
-        'International'
+        { text: 'Atlantic (QC, NB, NL, NS, PEI)', value: 'Atlantic (QC, NB, NL, NS, PEI)' },
+        { text: 'Capital (ON)', value: 'Capital (ON)' },
+        { text: 'Central (MB, SK, NU)', value: 'Central (MB, SK, NU)' },
+        { text: 'Mountain (AB, NWT)', value: 'Mountain (AB, NWT)' },
+        { text: 'Pacific (BC, YT)', value: 'Pacific (BC, YT)' },
+        { text: 'International', value: 'International' },
+        { text: 'Other', value: 'Other' },
+        { text: 'I am not an SFC member', value: 'SFC+' }
       ],
       areaList: [
         [
@@ -189,7 +254,7 @@ export default {
         [
           'Greater Toronto East',
           'Greater Toronto West',
-          'Hamilton - St. Catherine',
+          'Hamilton-St. Catharines',
           'Ottawa'
         ],
         [
@@ -214,7 +279,7 @@ export default {
 
   computed: {
     nameInputRules () {
-      return this.nameFieldFocused ? '' : 'required|alpha_spaces||max:40|min:3'
+      return this.nameFieldFocused ? '' : 'required|max:40|min:2'
     },
 
     emailInputRules () {
@@ -230,12 +295,38 @@ export default {
     }
   },
 
+  watch: {
+    lastName (value) {
+      this.name = `${this.firstName} ${value}`
+    }
+  },
+
   methods: {
     async handleContinue () {
       const validInputs = await this.$refs.observer.validate();
       if (!validInputs) return
 
       this.step++
+      window.scrollTo(0, 0)
+    },
+
+    fetchAreas (region) {
+      switch (region) {
+        case 'Atlantic (QC, NB, NL, NS, PEI)':
+          return this.areaList[0]
+        case 'Capital (ON)':
+          return this.areaList[1]
+        case 'Central (MB, SK, NU)':
+          return this.areaList[2]
+        case 'Mountain (AB, NWT)':
+          return this.areaList[3]
+        case 'Pacific (BC, YT)':
+          return this.areaList[4]
+        case 'Pacific (BC, YT)':
+          return this.areaList[5]
+        default:
+          return ' '
+      }
     }
   }
 }

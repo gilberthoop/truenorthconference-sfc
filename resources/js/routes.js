@@ -1,8 +1,13 @@
+
 import VueRouter from 'vue-router'
+import { isLoggedIn } from './utils/auth'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Participants from './pages/Participants'
+import PortalHome from './pages/portal/PortalHome'
+import Competitions from './pages/portal/Competitions'
+import Workshops from './pages/portal/Workshops'
 
 const routes = [
   {
@@ -10,20 +15,81 @@ const routes = [
     component: Home,
     name: 'home'
   },
-  {
-    path: '/register',
-    component: Register,
-    name: 'register'
-  },
+  // {
+  //   path: '/register',
+  //   component: Register,
+  //   name: 'register',
+  //   beforeEnter: (to, from, next) => {
+  //     if (isLoggedIn()) {
+  //       next('/portal/home')
+  //     } else {
+  //       next()
+  //     }
+  //   }
+  // },
   {
     path: '/login',
     component: Login,
-    name: 'login'
+    name: 'login',
+    beforeEnter: (to, from, next) => {
+      if (isLoggedIn()) {
+        next('/portal/home')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/participants',
     component: Participants,
-    name: 'participants'
+    name: 'participants',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/portal/home',
+    component: PortalHome,
+    name: 'portal-home',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/portal/competitions',
+    component: Competitions,
+    name: 'portal-competitions',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
+  },
+  {
+    path: '/portal/workshops',
+    component: Workshops,
+    name: 'portal-workshops',
+    meta: { requiresAuth: true },
+    beforeEnter: (to, from, next) => {
+      if (to.meta.requiresAuth && !isLoggedIn()) {
+        next('/login')
+      } else {
+        next()
+      }
+    }
   }
 ]
 
